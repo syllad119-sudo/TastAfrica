@@ -1,0 +1,12 @@
+[
+ {
+    "id": 1 ,
+    "image":"https://placehold.co/600/?text=recette",
+    "title" : "",
+    "description" : "",
+    "ingredients" : [""],
+     "allergen": [""],
+    "createdAt": ""
+   
+}   
+]
