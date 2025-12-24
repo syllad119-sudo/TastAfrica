@@ -1,12 +1,124 @@
 [
- {
-    "id": 1 ,
-    "image":"https://placehold.co/600/?text=recette",
-    "title" : "",
-    "description" : "",
-    "ingredients" : [""],
-     "allergen": [""],
-    "createdAt": ""
-   
-}   
+  {
+    "id": 1,
+    "image": "https://placehold.co/300/?text=recette",
+    "name": "Attieke poisson",
+    "categorie": "Plat",
+    "createdAt": "",
+    "price": 15,
+    "description": "",
+    "allergen": [""]
+  },
+
+  {
+    "id": 2,
+    "image": "https://placehold.co/300/?text=recette",
+    "name": "Poulet Yassa",
+    "categorie": "Plat",
+    "createdAt": "",
+    "price": 15,
+    "description": "",
+    "allergen": [""]
+  },
+
+  {
+    "id": 3,
+    "image": "/images/tieb.png" ,
+    "name": "Tieboudienne",
+    "categorie": "Plat",
+    "createdAt": "",
+    "price": 15,
+    "description": "",
+    "allergen": [""]
+  },
+  {
+    "id": 4,
+    "image": "https://placehold.co/300/?text=recette",
+    "name": "Mafe viande",
+    "categorie": "Plat",
+    "createdAt": "",
+    "price": 15,
+    "description": "",
+    "allergen": [""]
+  },
+  {
+    "id": 5,
+    "image": "https://placehold.co/300/?text=recette",
+    "name": "bissap",
+    "categorie": "boisson",
+    "createdAt": "",
+    "price": "3",
+    "description": "",
+    "allergen": [""]
+  },
+  {
+    "id": 6,
+    "image": "https://placehold.co/300/?text=recette",
+    "name": "jus de gingembre",
+    "categorie": "boisson",
+    "createdAt": "",
+    "price": "3",
+    "description": "",
+    "allergen": [""]
+  },
+  {
+    "id": 7,
+    "image": "https://placehold.co/300/?text=recette",
+    "name": "jus de baobab",
+    "categorie": "boisson",
+    "createdAt": "",
+    "price": "3",
+    "description": "",
+    "allergen": [""]
+  },
+  {
+    "id": 8,
+    "image": "https://placehold.co/300/?text=recette",
+    "name": "sodas (cola, fanta, sprite)",
+    "categorie": "boisson",
+    "createdAt": "",
+    "price": "3",
+    "description": "",
+    "allergen": [""]
+  },
+  {
+    "id": 9,
+    "image": "https://placehold.co/300/?text=recette",
+    "name": "Thiakry Nature ",
+    "categorie": "dessert",
+    "createdAt": "",
+    "price": "5",
+    "description": "",
+    "allergen": [""]
+  },
+  {
+    "id": 10,
+    "image": "https://placehold.co/300/?text=recette",
+    "name": "",
+    "categorie": "dessert",
+    "createdAt": "",
+    "price": "5",
+    "description": "",
+    "allergen": [""]
+  },
+  {
+    "id": 11,
+    "image": "https://placehold.co/300/?text=recette",
+    "name": "",
+    "categorie": "dessert",
+    "createdAt": "",
+    "price": "5",
+    "description": "",
+    "allergen": [""]
+  },
+  {
+    "id": 12,
+    "image": "https://placehold.co/300/?text=recette",
+    "name": "",
+    "categorie": "dessert",
+    "createdAt": "",
+    "price": "5",
+    "description": "",
+    "allergen": [""]
+  }
 ]
