@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Africain</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/burger.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <img class="logo" src="images/newlogo.png" alt="Logo Taste Africa" />
+      </div>
+      <!-- Bouton burger -->
+      <div id="burgernav">
+        <div class="burger" id="burger">☰</div>
+
+        <nav class="nav" id="nav">
+          <a href="#">Accueil</a>
+          <a href="#">Services</a>
+          <a href="#">À propos</a>
+          <a href="#">Contact</a>
+        </nav>
+      </div>
+
+      <div class="r-social">
+        <img src="images/instagram-brands-solid-full.jpg" alt="insta" />
+        <img src="images/facebook-brands-solid-full-_2_.jpg" alt="fb" />
+        <img src="images/tiktok-brands-solid-full.jpg" alt="tiktok" />
+      </div>
+
+      <!-- <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="">A propos</a></li>
+        </ul>
+      </nav> -->
+    </header>
+    <main>
+      <h1>La Carte</h1>
+      <section class="search">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="🔍 Rechercher un plat..."
+        />
+      </section>
+
+      <section class="sort">
+        <select id="sortSelect">
+          <option value="">Trier par</option>
+          <option value="asc">Prix : du moins cher au plus cher</option>
+          <option value="desc">Prix : du plus cher au moins cher</option>
+        </select>
+      </section>
+
+      <div id="menus"></div>
+      <!-- affciher liste des plats -->
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Taste Africa. Tous droits réservés.</p>
+      <div class="reseau social">
+        <img src="images/instagram-brands-solid-full.jpg" alt="insta" />
+        <img src="images/facebook-brands-solid-full-_2_.jpg" alt="fb" />
+        <img src="images/tiktok-brands-solid-full.jpg" alt="tiktok" />
+      </div>
+
+      <div class="footer">
+        <p>
+          <img src="images/location-dot-solid-full-_1_.jpg" alt="" />Tast Africa
+          <br />
+          Contactez-nous <br />
+          Email:tastafrica13@gmail.com <br />
+          Téléphone: +33 6 12 34 56 78
+        </p>
+      </div>
+
+      <div class="logofoot">
+        <img src="images/newlogo.png" alt="Logo Taste Africa" />
+      </div>
+    </footer>
+
+    <script src="js/index.js"></script>
+    <script src="js/burger.js"></script>
+    <script src="js/filter.js"></script>
+  </body>
+</html>

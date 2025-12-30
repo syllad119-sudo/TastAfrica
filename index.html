@@ -1,43 +1,102 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Restaurant Africain </title>
+    <title>Document</title>
+    <link rel="stylesheet" href="css/burger.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header>
-      <div >
-        <img class = "logo" src="images/newlogo.png" alt="Logo Taste Africa" />
+      <div>
+        <img class="logo" src="images/newlogo.png" alt="Logo Taste Africa" />
+      </div>
+      <!-- Bouton burger -->
+      <div id="burgernav">
+        <div class="burger" id="burger">☰</div>
 
+        <nav class="nav" id="nav">
+          <a href="#">Accueil</a>
+          <a href="#">Services</a>
+          <a href="#">À propos</a>
+          <a href="#">Contact</a>
+        </nav>
       </div>
 
-      <nav>
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="menu.html">Menu</a></li> 
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        
-      </nav>
+      <div class="r-social">
+        <img src="images/instagram-brands-solid-full.jpg" alt="insta" />
+        <img src="images/facebook-brands-solid-full-_2_.jpg" alt="fb" />
+        <img src="images/tiktok-brands-solid-full.jpg" alt="tiktok" />
+      </div>
     </header>
     <main>
-      <h1> La Carte  </h1>
+      <section class="back">
+        <h1>Bienvenue à Taste Africa</h1>
+        <p>
+          Découvrez les saveurs authentiques de l'Afrique dans chaque plat que
+          nous préparons avec passion.
+        </p>
+        <button id="openReservation" class="reserve-btn">
+          📅 Réserver une table
+        </button>
+      </section>
+      <h2>
+        "Découvrez les saveurs authentiques afrcaines <br />
+        au restaurant Tast Africa à Marseille
+      </h2>
 
-    <div id="menus"></div>
-    <!-- affciher liste des plats -->
-     
+      <section class="card">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2901.6149159682805!2d5.394973675994751!3d43.34324657111848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c9bff6945fdd13%3A0x97493f5acd920579!2s54%20Rue%20Gabriel%20Audisio%2C%2013014%20Marseille!5e0!3m2!1sfr!2sfr!4v1766966184028!5m2!1sfr!2sfr"
+          title="adresse de mon restaurant"
+          width="1000"
+          height="500"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </section>
+      <div id="reservationModal" class="modal">
+        <div class="modal-content">
+          <h2>Réservation</h2>
 
-    
+          <input type="text" id="nom" placeholder="Votre nom" />
+          <input type="date" id="date" />
+          <input type="time" id="heure" />
+          <input
+            type="number"
+            id="personnes"
+            placeholder="Nombre de personnes"
+          />
 
-
+          <button id="submitReservation">Confirmer</button>
+          <button id="closeReservation">Annuler</button>
+        </div>
+      </div>
     </main>
-
     <footer>
       <p>&copy; 2024 Taste Africa. Tous droits réservés.</p>
-    </footer>
+      <div class="reseau social">
+        <img src="images/instagram-brands-solid-full.jpg" alt="insta" />
+        <img src="images/facebook-brands-solid-full-_2_.jpg" alt="fb" />
+        <img src="images/tiktok-brands-solid-full.jpg" alt="tiktok" />
+      </div>
 
-    <script src="js/index.js"></script>
+      <div class="contactfoot">
+        <p>
+          <img src="images/location-dot-solid-full-_1_.jpg" alt="" />Tast Africa
+        </p>
+        <p>Contactez-nous :</p>
+        <p>Email : tastafrica13@gmail.com</p>
+        <p>Téléphone: +33 6 12 34 56 78</p>
+      </div>
+      <div class="logofoot">
+        <img src="images/newlogo.png" alt="Logo Taste Africa" />
+      </div>
+    </footer>
+    <script src="js/burger.js"></script>
+    <script src="js/resa.js"></script>
   </body>
 </html>

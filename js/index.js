@@ -16,7 +16,7 @@ fetch(url)
     console.log(data[0].name); //affichage du fichier json7
     // parcourir le tableau et crée des elements pour chaque mois
     for (let index = 0; index < data.length; index++) {
-        console.log(index);
+      console.log(index);
 
       const article = document.createElement("article");
       article.classList = "menu";
@@ -29,11 +29,9 @@ fetch(url)
             <p>Categorie: ${data[index].categorie} </p>
             `;
       menus.appendChild(article);
-    //   console.log(menus);
-    // //   console.log(article);
-        
+      //   console.log(menus);
+      // //   console.log(article);
     }
-    
   })
 
   .catch((error) => {

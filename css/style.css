@@ -1,66 +1,180 @@
-*{ box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
 
-img {max-width: 100%;}
+img {
+  max-width: 100%;
+}
 
-header {
-  background-color:#BF7E04;
+/* header {
+  background-color: #bf7e04;
   text-align: center;
   max-width: 100%;
   color: white;
   padding: 5px;
   margin: 5px;
+}
+.logo {
+  width: 300px;
+}
+
+.r-social {
+  text-align: right;
   
-  }
-  .logo { width: 300px;}
-   
+} */
 
-  nav li { display: inline-block ; 
-    justify-content: space-between;
-    margin : 20px;
-    gap: 20px;
-    color: white;
-    font-size: 20px;}
-
-    nav li a {
-        color :rgba(255, 255, 255, 0.8);
-        text-decoration : "none";
-    }
-
-    main { margin-bottom: 32px;}
-
-
-
-  h1 { text-align: center;}
-
-  h2 { text-align: center;
-      color:#4f1e01;}
-
-  p { text-align: center;}
-
-  #menus {max-width: 1200px;
-          margin: auto;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          grid-gap: 25px;}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin:0;
+/* .search-container {
+  text-align: center;
+  margin: 15px;
   
 }
 
+.search input {
+  padding: 10px;
+  width: 250px;
+  max-width: 80%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+} */
+.search {
+  text-align: center;
+  margin: 15px;
+}
 
+.search input {
+  padding: 10px;
+  width: 250px;
+  max-width: 80%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
 
+main {
+  margin-bottom: 40px;
+  max-width: 100%;
+  min-height: 100vh;
+}
 
+h1 {
+  text-align: center;
+}
 
+h2 {
+  text-align: center;
+  color: #4f1e01;
+}
 
+p {
+  text-align: center;
+}
 
+#menus {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 25px;
+}
 
-footer {background-color: black;
+.menu {
+  border-radius: 2%;
+}
+
+article {
+  border-radius: 8px;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 100%;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+footer {
+  background-color: black;
   text-align: center;
   max-width: 100%;
   color: white;
   padding: 50px;
-  margin: 5px;}
+  margin: 5px;
+}
+.logofoot {
+  width: 100px;
+  text-align: left;
+  margin-top: auto;
+}
 
+.contactfoot {
+  text-align: left;
+  margin-top: 0;
+}
 
+.back {
+  background-image: url(/images/plat-africain-background.jpg);
+  margin: 15px;
+  min-height: 80vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.card {
+  text-align: center;
+}
+
+.contactfoot img {
+  width: 40px;
+}
+.contactfoot {
+  text-align: left;
+}
+
+.sort {
+  text-align: center;
+  margin: 10px;
+}
+
+.sort select {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Formulaire de reservation css */
+.reserve-btn {
+  padding: 10px 20px;
+  background: #8b0000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 15px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  width: 300px;
+  margin: 100px auto;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.modal-content input {
+  width: 90%;
+  padding: 8px;
+  margin: 5px 0;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+}
