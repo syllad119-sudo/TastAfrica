@@ -4,8 +4,7 @@ const closeBtn = document.getElementById("closeReservation");
 const submitBtn = document.getElementById("submitReservation");
 
 // Ouvrir la modal
-openBtn.addEventListener("click", () => {
-  modal.style.display = "block";
+openBtn .addEventListener ("click", () => { modal.style.display = "block";
 });
 
 // Fermer la modal
@@ -14,20 +13,58 @@ closeBtn.addEventListener("click", () => {
 });
 
 // Confirmer la réservation
-submitBtn.addEventListener("click", () => {
-  const nom = document.getElementById("nom").value;
-  const date = document.getElementById("date").value;
-  const heure = document.getElementById("heure").value;
-  const personnes = document.getElementById("personnes").value;
+const contactForm = document.getElementById("contactForm");
+const feedback = document.getElementById("contactFeedback");
 
-  if (!nom || !date || !heure || !personnes) {
-    alert("Veuillez remplir tous les champs");
+contactForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const nom = document.getElementById("Nom").value.trim();
+  const email = document.getElementById("Email").value.trim();
+  const message = document.getElementById("Message").value.trim();
+  const telephone = document.getElementById("telephone").value.trim();
+
+  if (!nom || !email || !message || !telephone) {
+    feedback.textContent = "❌ Veuillez remplir tous les champs";
+    feedback.style.color = "red";
     return;
   }
 
-  alert(
-    `Merci ${nom} !\nVotre table pour ${personnes} personnes est réservée le ${date} à ${heure}.`
-  );
+  feedback.textContent =
+    "✅ Merci pour votre message, nous vous répondrons bientôt !";
+  feedback.style.color = "green";
 
-  modal.style.display = "none";
+  contactForm.reset();
 });
+
+// document.getElementById("contactForm").addEventListener("submit", function(e) {
+//     e.preventDefault(); // Empêche le rechargement de la page
+
+//     // Récupération des valeurs
+//     let nom = document.getElementById("nom").value.trim();
+//     let email = document.getElementById("email").value.trim();
+//     let message = document.getElementById("message").value.trim();
+//     let telephone = document.getElementById("telephone").value.trim();
+//     let feedback = document.getElementById("feedback");
+
+//     // Vérification
+//     if (nom === "" || email === "" || message === "" || telephone === "") {
+//         feedback.style.color = "red";
+//         feedback.textContent = "❌ Veuillez remplir tous les champs.";
+//         return;
+//     }
+
+//     // Vérification simple de l'email
+//     if (!email.includes("@")) {
+//         feedback.style.color = "red";
+//         feedback.textContent = "❌ Email invalide.";
+//         return;
+//     }
+
+//     // Succès
+//     feedback.style.color = "green";
+//     feedback.textContent = "✅ Message envoyé avec succès !";
+
+//     // Réinitialiser le formulaire
+//     document.getElementById("contactForm").reset();
+// });

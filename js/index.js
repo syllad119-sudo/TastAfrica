@@ -35,7 +35,37 @@ fetch(url)
   })
 
   .catch((error) => {
-    console.log(
-      "Il y a eu un probleme avec l'operation fetch: " + error.message
-    );
+    console.log( "Il y a eu un probleme avec l'operation fetch: " + error.message);
   });
+
+// Pour le formulaire de contact
+// const contactForm = document.querySelector("#contactform");
+// const contactFeedback = document.querySelector("#contactFeedback");   
+// contactForm.addEventListener("submit", function (event) {
+//   event.preventDefault(); // Empecher le comportement par defaut du formulaire      
+//   contactFeedback.textContent = "Merci pour votre message. Nous vous recontacterons sous peu.";
+//   contactForm.reset(); // Reinitialiser le formulaire
+// });       
+
+// const contactForm = document.getElementById("contactForm");
+// const feedback = document.getElementById("contactFeedback");
+
+// contactForm.addEventListener("submit", (e) => {
+//   e.preventDefault();
+
+//   const nom = document.getElementById("nom").value.trim();
+//   const email = document.getElementById("email").value.trim();
+//   const message = document.getElementById("message").value.trim();
+  
+
+//   if (!nom || !email || !message ) {
+//     feedback.textContent = "❌ Veuillez remplir tous les champs";
+//     feedback.style.color = "red";
+//     return;
+//   }
+
+//   feedback.textContent = "✅ Merci pour votre message, nous vous répondrons bientôt !";
+//   feedback.style.color = "green";
+
+//   contactForm.reset();
+// });
