@@ -1,41 +1,63 @@
-const openBtn = document.getElementById("openReservation");
-const modal = document.getElementById("reservationModal");
-const closeBtn = document.getElementById("closeReservation");
-const submitBtn = document.getElementById("submitReservation");
+const form = document.getElementById("contactForm");
+const messageDiv = document.getElementById("messageDiv");
 
-// Ouvrir la modal
-openBtn .addEventListener ("click", () => { modal.style.display = "block";
-});
-
-// Fermer la modal
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-});
-
-// Confirmer la réservation
-const contactForm = document.getElementById("contactForm");
-const feedback = document.getElementById("contactFeedback");
-
-contactForm.addEventListener("submit", (e) => {
+// Écouter l'événement de soumission du formulaire
+form.addEventListener("submit", function (e) {
+  // Empêcher le rechargement de la page
   e.preventDefault();
 
-  const nom = document.getElementById("Nom").value.trim();
-  const email = document.getElementById("Email").value.trim();
-  const message = document.getElementById("Message").value.trim();
-  const telephone = document.getElementById("telephone").value.trim();
+  // Récupérer les valeurs des champs
+  const nom = document.getElementById("nom").value;
+  const prenom = document.getElementById("prenom").value;
+  const email = document.getElementById("email").value;
+  const telephone = document.getElementById("telephone").value;
+  const message = document.getElementById("message").value;
 
-  if (!nom || !email || !message || !telephone) {
-    feedback.textContent = "❌ Veuillez remplir tous les champs";
-    feedback.style.color = "red";
-    return;
+  // Vérifier que tous les champs sont remplis
+  if (nom && prenom && email && telephone && message) {
+    // Afficher un message de succès
+    messageDiv.textContent =
+      "Merci " +
+      prenom +
+      " " +
+      nom +
+      " ! Votre message a été envoyé avec succès.";
+    messageDiv.className = "message success";
+    messageDiv.style.display = "block";
+
+    // Afficher les données dans la console (pour le développement)
+    console.log("Données du formulaire:");
+    console.log("Nom:", nom);
+    console.log("Prénom:", prenom);
+    console.log("Email:", email);
+    console.log("Téléphone:", telephone);
+    console.log("Message:", message);
+
+    // Réinitialiser le formulaire
+    form.reset();
+
+    // Cacher le message après 5 secondes
+    setTimeout(function () {
+      messageDiv.style.display = "none";
+    }, 5000);
+  } else {
+    // Afficher un message d'erreur
+    messageDiv.textContent = "Veuillez remplir tous les champs obligatoires.";
+    messageDiv.className = "message error";
+    messageDiv.style.display = "block";
   }
-
-  feedback.textContent =
-    "✅ Merci pour votre message, nous vous répondrons bientôt !";
-  feedback.style.color = "green";
-
-  contactForm.reset();
 });
+
+// Recupereration du formulaire
+// const form = document.getElementById("contactForm");
+
+// // Recuperation des champs du formulaire
+// const nom = document.getElementById("nom");
+// const prenom = document.getElementById("prenom");
+// const email = document.getElementById("email");
+// const telephone = document.getElementById("telephone");
+// zone de messge de feedback
+// const feedback = document.getElementById("feedback");
 
 // document.getElementById("contactForm").addEventListener("submit", function(e) {
 //     e.preventDefault(); // Empêche le rechargement de la page

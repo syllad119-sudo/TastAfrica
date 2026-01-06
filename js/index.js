@@ -23,10 +23,10 @@ fetch(url)
       article.style.backgroundColor = "#BF7E04";
       article.innerHTML = `
             <img src="${data[index].image}" alt="${data[index].name}" >
-            <h2>${data[index].name}</h2>
-            <p>${data[index].description}</p>
+            <h2>${data[index].name}</h2> 
             <p>Prix: ${data[index].price} € </p>
             <p>Categorie: ${data[index].categorie} </p>
+           
             `;
       menus.appendChild(article);
       //   console.log(menus);
@@ -35,17 +35,19 @@ fetch(url)
   })
 
   .catch((error) => {
-    console.log( "Il y a eu un probleme avec l'operation fetch: " + error.message);
+    console.log(
+      "Il y a eu un probleme avec l'operation fetch: " + error.message
+    );
   });
 
 // Pour le formulaire de contact
 // const contactForm = document.querySelector("#contactform");
-// const contactFeedback = document.querySelector("#contactFeedback");   
+// const contactFeedback = document.querySelector("#contactFeedback");
 // contactForm.addEventListener("submit", function (event) {
-//   event.preventDefault(); // Empecher le comportement par defaut du formulaire      
+//   event.preventDefault(); // Empecher le comportement par defaut du formulaire
 //   contactFeedback.textContent = "Merci pour votre message. Nous vous recontacterons sous peu.";
 //   contactForm.reset(); // Reinitialiser le formulaire
-// });       
+// });
 
 // const contactForm = document.getElementById("contactForm");
 // const feedback = document.getElementById("contactFeedback");
@@ -56,7 +58,6 @@ fetch(url)
 //   const nom = document.getElementById("nom").value.trim();
 //   const email = document.getElementById("email").value.trim();
 //   const message = document.getElementById("message").value.trim();
-  
 
 //   if (!nom || !email || !message ) {
 //     feedback.textContent = "❌ Veuillez remplir tous les champs";
@@ -69,3 +70,38 @@ fetch(url)
 
 //   contactForm.reset();
 // });
+
+// ajouter bouton au panier //
+
+// let panier = [];
+
+// function ajouterAuPanier(id) {
+//   const plat = plats.find((p) => p.id === id);
+//   panier.push(plat);
+//   afficherPanier();
+// }
+
+// function afficherPanier() {
+//   const panierListe = document.getElementById("panierListe");
+//   const totalEl = document.getElementById("total");
+
+//   panierListe.innerHTML = "";
+//   let total = 0;
+
+//   panier.forEach((item, index) => {
+//     total += item.prix;
+//     panierListe.innerHTML += `
+//       <li>
+//         ${item.nom} - ${item.prix} €
+//         <button onclick="supprimerDuPanier(${index})">❌</button>
+//       </li>
+//     `;
+//   });
+
+//   totalEl.textContent = `Total : ${total} €`;
+// }
+
+// function supprimerDuPanier(index) {
+//   panier.splice(index, 1);
+//   afficherPanier();
+// }

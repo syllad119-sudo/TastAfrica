@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "image": "https://placehold.co/300/?text=recette",
-    "name": "Attieke poisson",
+    "image": "/images/yassapoulet.png",
+    "name": "Yassa poulet",
     "categorie": "Plat",
     "createdAt": "",
     "price": 15,
@@ -12,19 +12,19 @@
 
   {
     "id": 2,
-    "image": "https://placehold.co/300/?text=recette",
-    "name": "Poulet Yassa",
+    "image": "/images/dibi310.png",
+    "name": "Dibi viande",
     "categorie": "Plat",
     "createdAt": "",
     "price": 15,
-    "description": "",
+    "description": "Dibi viande accompagné d’une portion de riz rouge et de riz blanc mélangé, alokos, frites, plus sauce mafé ou yassa.",
     "allergen": [""]
   },
 
   {
     "id": 3,
-    "image": "/images/tieb.png" ,
-    "name": "Tieboudienne",
+    "image": "/images/tieb.png",
+    "name": "Tieb Poisson ",
     "categorie": "Plat",
     "createdAt": "",
     "price": 15,
@@ -33,7 +33,7 @@
   },
   {
     "id": 4,
-    "image": "https://placehold.co/300/?text=recette",
+    "image": "/images/mafeviande.png",
     "name": "Mafe viande",
     "categorie": "Plat",
     "createdAt": "",
@@ -43,7 +43,7 @@
   },
   {
     "id": 5,
-    "image": "https://placehold.co/300/?text=recette",
+    "image": "/images/Bissap.png",
     "name": "bissap",
     "categorie": "boisson",
     "createdAt": "",
@@ -53,7 +53,7 @@
   },
   {
     "id": 6,
-    "image": "https://placehold.co/300/?text=recette",
+    "image": "/images/Gingembre.png",
     "name": "jus de gingembre",
     "categorie": "boisson",
     "createdAt": "",
@@ -63,7 +63,7 @@
   },
   {
     "id": 7,
-    "image": "https://placehold.co/300/?text=recette",
+    "image": "/images/jus 7.png",
     "name": "jus de baobab",
     "categorie": "boisson",
     "createdAt": "",
@@ -73,7 +73,7 @@
   },
   {
     "id": 8,
-    "image": "https://placehold.co/300/?text=recette",
+    "image": "/images/soda.png",
     "name": "sodas (cola, fanta, sprite)",
     "categorie": "boisson",
     "createdAt": "",
@@ -83,7 +83,7 @@
   },
   {
     "id": 9,
-    "image": "https://placehold.co/300/?text=recette",
+    "image": "/images/Tiakry.png",
     "name": "Thiakry Nature ",
     "categorie": "dessert",
     "createdAt": "",
@@ -93,9 +93,9 @@
   },
   {
     "id": 10,
-    "image": "https://placehold.co/300/?text=recette",
-    "name": "",
-    "categorie": "dessert",
+    "image": "/images/beignet.png",
+    "name": "Beignets",
+    "categorie": "Dessert",
     "createdAt": "",
     "price": "5",
     "description": "",
@@ -103,9 +103,9 @@
   },
   {
     "id": 11,
-    "image": "https://placehold.co/300/?text=recette",
-    "name": "",
-    "categorie": "dessert",
+    "image": "/images/ananasroti.png",
+    "name": "Ananas Roti",
+    "categorie": "Dessert",
     "createdAt": "",
     "price": "5",
     "description": "",
@@ -113,9 +113,9 @@
   },
   {
     "id": 12,
-    "image": "https://placehold.co/300/?text=recette",
-    "name": "",
-    "categorie": "dessert",
+    "image": "/images/Fondantchoco.png",
+    "name":"Fondant au chocolat",
+    "categorie": "Dessert",
     "createdAt": "",
     "price": "5",
     "description": "",
