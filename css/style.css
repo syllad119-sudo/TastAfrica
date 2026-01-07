@@ -222,5 +222,5 @@ footer {
   text-align: center;
   padding: 30px;
   margin: 16px;
-  width: 100%;
+  max-width: 100%;
 }
