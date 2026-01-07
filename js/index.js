@@ -1,6 +1,6 @@
 // To fetch pour recuperer les donnes json
 
-const url = "http://127.0.0.1:5501/js/data/menu.json";
+const url = window.location.origin + "/js/data/menu.json";
 
 const menus = document.querySelector("#menus");
 
@@ -26,7 +26,10 @@ fetch(url)
             <h2>${data[index].name}</h2> 
             <p>Prix: ${data[index].price} € </p>
             <p>Categorie: ${data[index].categorie} </p>
-           
+            <p>description: ${data[index].desc}</p>
+
+            <p> <a href="detail.html?id=${data[index].id}">En savoir plus</a> </p>
+                       
             `;
       menus.appendChild(article);
       //   console.log(menus);

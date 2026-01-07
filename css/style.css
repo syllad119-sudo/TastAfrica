@@ -11,13 +11,17 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 
   margin: 0;
+min-height: 100vh;
 
-  min-height: 100vh;
+
+
+
 }
 
 iframe {
   width: 100%;
-  height: 50vh;
+  height: 100vh;
+  margin: auto;
 }
 
 h1,
@@ -77,6 +81,7 @@ main {
   margin-bottom: 40px;
   max-width: 100%;
   min-height: 100vh;
+  
 }
 
 h1 {
@@ -122,6 +127,7 @@ footer {
   padding: 50px;
   margin: 5px;
 }
+
 .logofoot {
   width: 100px;
   text-align: left;
@@ -142,11 +148,9 @@ footer {
 
 .back__content {
   padding: 32px 16px;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.86),
-    transparent
-  );
+  background-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.86),
+      transparent);
 }
 
 .card {
@@ -156,6 +160,7 @@ footer {
 .contactfoot img {
   width: 40px;
 }
+
 .contactfoot {
   text-align: left;
 }
@@ -204,162 +209,18 @@ footer {
   padding: 8px;
   margin: 5px 0;
 }
+
 .footer {
   display: flex;
   justify-content: space-between;
   max-width: 100%;
 }
 
-/* Reservation css */
-/* .container-flex {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  max-width: 900px;
-  margin: 40px auto;
-  border: 1px solid #c0c0c0;
-  padding: 10px;
-  background-size: 70%;
-  font-size: 10px;
-}
+#menu-detail {position: relative;}
 
-form {
-  width: 50%;
-  margin: 0 auto;
-  padding: 30px;
-  border: 1px solid #c0c0c0;
+.detail {
   text-align: center;
-  background-color: black;
-  justify-content: center;
-  max-width: 100%;
-}
-
-input,
-select {
-  height: 30px;
-  max-width: 100%;
-}
-
-textarea {
-  resize: vertical;
-  max-width: 100%;
-  /* vertical | horizontal | none */
-/* }
-input,textarea {
-  width: 50%;
-  margin-top: 3px;
-}
-
-
-
-h3 {
-  color: white;
-}
-
-h4 {
-  color: white;
-}
-
-#feedback {margin-top: 10px;
-font-weight: bold;} */
-*/
-
-/* autre formulaire css */
-/* #contact {
-  background: #f5f5f5;
   padding: 30px;
-  margin-top: 40px;
-  text-align: center;
-}
-
-#contact form {
-  max-width: 400px;
-  margin: auto;
-}
-
-#contact input,
-#contact textarea {
+  margin: 16px;
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
 }
-
-#contact button {
-  padding: 10px 20px;
-  background: #8b0000;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-#contactFeedback {
-  margin-top: 15px;
-  font-weight: bold;
-}
- */
-
-/* tentative css formulaire */
-
-/* form {
-    background: white;
-    padding: 20px;
-    max-width: 400px;
-    margin: auto;
-    border-radius: 5px;
-}
-
-label {
-    display: block;
-    margin-top: 10px;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-}
-
-button {
-    margin-top: 15px;
-    padding: 10px;
-    width: 100%;
-    background: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-#resultat {
-    text-align: center;
-    margin-top: 15px;
-    font-weight: bold;
-} */
-/* css pour ajout au Panier  */
-/* #panier {
-  background: #fff;
-  padding: 20px;
-  margin: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-#panier ul {
-  list-style: none;
-  padding: 0;
-}
-
-#panier li {
-  display: flex;
-  justify-content: space-between;
-  margin: 5px 0;
-}
-
-#panier button {
-  background: red;
-  color: white;
-  border: none;
-  cursor: pointer;
-  padding: 3px 8px;
-} */

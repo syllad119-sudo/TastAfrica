@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Restaurant Africain</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
     <link rel="stylesheet" href="css/burger.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header>
@@ -14,7 +14,7 @@
       </div>
       <!-- Bouton burger -->
       <div id="burgernav">
-        <div class="burger" id="burger">☰</div>
+        <div class="burger" id="burger">☰ Menu</div>
 
         <nav class="nav" id="nav">
           <a href="index.html">Accueil</a>
@@ -29,42 +29,12 @@
         <img src="images/facebook-brands-solid-full-_2_.jpg" alt="fb" />
         <img src="images/tiktok-brands-solid-full.jpg" alt="tiktok" />
       </div>
-
-      <!-- <nav>
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="">A propos</a></li>
-        </ul>
-      </nav> -->
     </header>
+
     <main>
-      <h1>La Carte</h1>
-      <section class="search">
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="🔍 Rechercher un plat..."
-        />
-      </section>
-
-      <section class="sort">
-        <select id="sortSelect">
-          <option value="">Trier par</option>
-          <option value="asc">Prix : du moins cher au plus cher</option>
-          <option value="desc">Prix : du plus cher au moins cher</option>
-        </select>
-      </section>
-
-      <!-- <section id="panier">
-        <h2>🛒 Mon panier</h2>
-        <ul id="panierListe"></ul>
-        <p id="total">Total : 0 €</p>
-      </section> -->
-
-      <div id="menus"></div>
-      <!-- affciher liste des plats -->
+      <article id="menu-detail">
+        <!-- Les détails du menu seront affichés ici -->
+      </article>
     </main>
 
     <footer>
@@ -84,14 +54,45 @@
           Téléphone: +33 6 12 34 56 78
         </p>
       </div>
-
       <div class="logofoot">
         <img src="images/newlogo.png" alt="Logo Taste Africa" />
       </div>
     </footer>
-
-    <script src="js/index.js"></script>
     <script src="js/burger.js"></script>
-    <script src="js/filter.js"></script>
+    <!-- <script src="js/index.js"></script> -->
+    <script>
+      // Récupérer l'ID du menu depuis l'URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const menuId = urlParams.get("id");
+      console.log("Menu ID:", menuId);
+
+      const url = window.location.origin + "/js/data/menu.json";
+
+      let menuDetail = document.getElementById("menu-detail");
+      fetch(url)
+        .then((reponse) => reponse.json())
+        .then((data) => {
+          console.log(data);
+
+          // Trouver l'élément du menu par ID
+          const menu = data.find((item) => item.id == menuId);
+          if (!menu) {
+            menuDetail.innerHTML = "<p>Menu non trouvé.</p>";
+            return;
+          }
+
+          const article = document.createElement("article");
+          article.classList = "detail";
+
+          article.innerHTML = `
+            <img src="${menu.image}" alt="${menu.name}">
+            <h2>${menu.name}</h2>
+            <p>Prix: ${menu.price} €</p>
+            <p>Catégorie: ${menu.categorie}</p>
+          `;
+
+          menuDetail.appendChild(article);
+        });
+    </script>
   </body>
 </html>

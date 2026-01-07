@@ -6,7 +6,7 @@
     "categorie": "Plat",
     "createdAt": "",
     "price": 15,
-    "description": "",
+    "desc": "Riz blanc, sauce à base d’oignons, olives, citron, poulet.",
     "allergen": [""]
   },
 
@@ -17,7 +17,7 @@
     "categorie": "Plat",
     "createdAt": "",
     "price": 15,
-    "description": "Dibi viande accompagné d’une portion de riz rouge et de riz blanc mélangé, alokos, frites, plus sauce mafé ou yassa.",
+    "desc": "Dibi viande accompagné d’une portion de riz rouge et de riz blanc mélangé, alokos, frites, plus sauce mafé ou yassa.",
     "allergen": [""]
   },
 
@@ -28,7 +28,7 @@
     "categorie": "Plat",
     "createdAt": "",
     "price": 15,
-    "description": "",
+    "desc": "",
     "allergen": [""]
   },
   {
@@ -38,7 +38,7 @@
     "categorie": "Plat",
     "createdAt": "",
     "price": 15,
-    "description": "",
+    "desc": "",
     "allergen": [""]
   },
   {
@@ -48,7 +48,7 @@
     "categorie": "boisson",
     "createdAt": "",
     "price": "3",
-    "description": "",
+    "desc": "",
     "allergen": [""]
   },
   {
@@ -58,7 +58,7 @@
     "categorie": "boisson",
     "createdAt": "",
     "price": "3",
-    "description": "",
+    "desc": "",
     "allergen": [""]
   },
   {
@@ -68,7 +68,7 @@
     "categorie": "boisson",
     "createdAt": "",
     "price": "3",
-    "description": "",
+    "desc": "",
     "allergen": [""]
   },
   {
@@ -78,7 +78,7 @@
     "categorie": "boisson",
     "createdAt": "",
     "price": "3",
-    "description": "",
+    "desc": "",
     "allergen": [""]
   },
   {
@@ -88,7 +88,7 @@
     "categorie": "dessert",
     "createdAt": "",
     "price": "5",
-    "description": "",
+    "desc": "",
     "allergen": [""]
   },
   {
@@ -98,7 +98,7 @@
     "categorie": "Dessert",
     "createdAt": "",
     "price": "5",
-    "description": "",
+    "desc": "",
     "allergen": [""]
   },
   {
@@ -108,7 +108,7 @@
     "categorie": "Dessert",
     "createdAt": "",
     "price": "5",
-    "description": "",
+    "desc": "",
     "allergen": [""]
   },
   {
@@ -118,7 +118,7 @@
     "categorie": "Dessert",
     "createdAt": "",
     "price": "5",
-    "description": "",
+    "desc": "",
     "allergen": [""]
   }
 ]
