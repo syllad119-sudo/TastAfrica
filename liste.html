@@ -19,7 +19,7 @@
         <nav class="nav" id="nav">
           <a href="./index.html">Accueil</a>
           <a href="./liste.html">Menu</a>
-          <a href="#">À propos</a>
+          <a href="./detail.html">À propos</a>
           <a href="./contact.html">Contact</a>
         </nav>
       </div>
@@ -41,21 +41,25 @@
     </header>
     <main>
       <h1>La Carte</h1>
-      <section class="search">
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="🔍 Rechercher un plat..."
-        />
-      </section>
 
-      <section class="sort">
+      <input type="text" id="searchInput" placeholder="Rechercher..." />
+
+      <select id="categorySelect">
+        <option value="all">Toutes les catégories</option>
+        <option value="plat">Plats</option>
+        <option value="boisson">Boissons</option>
+        <option value="dessert">Desserts</option>
+      </select>
+
+      <div id="resultats"></div>
+
+      <!-- <section class="sort">
         <select id="sortSelect">
           <option value="">Trier par</option>
           <option value="asc">Prix : du moins cher au plus cher</option>
           <option value="desc">Prix : du plus cher au moins cher</option>
         </select>
-      </section>
+      </section> -->
 
       <!-- <section id="panier">
         <h2>🛒 Mon panier</h2>
@@ -77,7 +81,10 @@
 
       <div class="footer">
         <p>
-          <img src="images/location-dot-solid-full-_1_.jpg" alt="" />Tast Africa
+          <img
+            src="images/location-dot-solid-full-_1_.jpg"
+            alt="logosite"
+          />Tast Africa
           <br />
           Contactez-nous <br />
           Email:tastafrica13@gmail.com <br />
@@ -93,5 +100,170 @@
     <script src="js/index.js"></script>
     <script src="js/burger.js"></script>
     <script src="js/filter.js"></script>
+    <script>
+      const searchPlat = document.getElementById("searchInput");
+      const categorySelect = document.getElementById("categorySelect");
+      const resultats = document.getElementById("resultats");
+      // const url = window.location.origin + "/js/data/menu.json";
+
+      fetch(url)
+        .then((response) => response.json())
+
+        .then((data) => {
+          console.log(data);
+          menuData = [data.plats, data.boissons, data.desserts];
+          console.log(menuData);
+        });
+
+      // searchPlat.addEventListener("input", lancerRecherche);
+      categorySelect.addEventListener("change", function () {
+        menus.innerHTML = "";
+        fetch(url)
+          .then((response) => response.json())
+
+          .then((data) => {
+            const categorieChoisie = categorySelect.value;
+            console.log(data);
+            const dataFiltered = data.filter(
+              (item) => item.categorie == categorieChoisie
+            );
+            console.log(dataFiltered);
+            for (let index = 0; index < dataFiltered.length; index++) {
+              // console.log(index);
+
+              const article = document.createElement("article");
+              article.classList = "menu";
+              article.style.backgroundColor = "#BF7E04";
+              article.innerHTML = `
+            <img src="${dataFiltered[index].image}" alt="${dataFiltered[index].name}" >
+            <h2>${dataFiltered[index].name}</h2>
+            <p>Prix: ${dataFiltered[index].price} €</p>
+            <p>Categorie: ${dataFiltered[index].categorie}</p>
+            <p>description: ${dataFiltered[index].desc}</p>
+
+            <p> <a href="detail.html?id=${dataFiltered[index].id}">En savoir plus</a> </p>
+
+            `;
+              menus.appendChild(article);
+            }
+          });
+      });
+      // filtres toute categories
+      let allmenus = [];
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          allmenus = data;
+          console.log(allmenus);
+        });
+
+      categorySelect.addEventListener("change", function () {
+        menus.innerHTML = "";
+        const categorieChoisie = categorySelect.value;
+        let dataFiltered;
+        if (categorieChoisie === "all") {
+          dataFiltered = allmenus;
+        } else {
+          dataFiltered = allmenus.filter(
+            (item) => item.categorie === categorieChoisie
+          );
+        }
+
+        console.log(dataFiltered);
+        for (let index = 0; index < dataFiltered.length; index++) {
+          console.log(index);
+
+          const article = document.createElement("article");
+          article.classList = "menu";
+          article.style.backgroundColor = "#BF7E04";
+          article.innerHTML = `
+            <img src="${dataFiltered[index].image}" alt="${dataFiltered[index].name}" >
+            <h2>${dataFiltered[index].name}</h2>
+            <p>Prix: ${dataFiltered[index].price} €</p>
+            <p>Categorie: ${dataFiltered[index].categorie}</p>
+            <p>description: ${dataFiltered[index].desc}</p>
+
+            <p> <a href="detail.html?id=${dataFiltered[index].id}">En savoir plus</a> </p>
+
+            `;
+          menus.appendChild(article);
+        }
+      });
+      // Fonctionnalite fil par barre de recherche
+      // fetch(url)
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     menusData = data;
+      //     donneesFiltrees = menusData;
+      //     afficherMenus(donneesFiltrees);
+      //   });
+
+      // searchInput.addEventListener("input", appliquerFiltres);
+      // categorySelect.addEventListener("change", appliquerFiltres);
+
+      // function appliquerFiltres() {
+      //   const texteRecherche = searchInput.value.toLowerCase();
+      //   const categorieChoisie = categorySelect.value;
+
+      //   donneesFiltrees = menusData.filter((item) => {
+      //     const correspondTexte = item.name
+      //       .toLowerCase()
+      //       .includes(texteRecherche);
+
+      //     const correspondCategorie =
+      //       categorieChoisie === "all" || item.categorie === categorieChoisie;
+
+      //     return correspondTexte && correspondCategorie;
+      //   });
+
+      //   afficherMenus(donneesFiltrees);
+      // }
+      // function afficherMenus(liste) {
+      //   menus.innerHTML = "";
+
+      //   if (liste.length === 0) {
+      //     menus.innerHTML = "<p>Aucun résultat</p>";
+      //     return;
+      //   }
+
+    //     liste.forEach((item) => {
+    //       const article = document.createElement("article");
+    //       article.classList.add("menu");
+
+    //       article.innerHTML = `
+    //   <img src="${item.image}" alt="${item.name}">
+    //   <h2>${item.name}</h2>
+    //   <p>Prix: ${item.price} €</p>
+    //   <p>Categorie: ${item.categorie}</p>
+    //   <p>${item.desc}</p>
+    //   <p>
+    //     <a href="detail.html?id=${item.id}">En savoir plus</a>
+    //   </p>
+    // `;
+
+    //       menus.appendChild(article);
+    //     });
+    //   }
+
+      // function lancerRecherche() {
+      //   const texteRecherche = searchPlat.value.toLowerCase();
+      //   const categorieChoisie = categorySelect.value;
+
+      //   menus.innerHTML = "";
+
+      //   const filtres = menuData.filter((item) => {
+      //     const correspondTexte = item.name
+      //       .toLowerCase()
+      //       .includes(texteRecherche);
+
+      //     const correspondCategorie =
+      //       categorieChoisie === "all" || item.categorie === categorieChoisie;
+
+      //     return correspondTexte && correspondCategorie;
+      //   });
+
+      //   console.log(filtres);
+      // }
+    </script>
   </body>
 </html>
