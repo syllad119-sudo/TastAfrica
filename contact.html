@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Formulaire de contact </title>
     <link rel="stylesheet" href="css/burger.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/resa.css" />
@@ -34,36 +34,58 @@
     <main>
       <div class="container">
         <h1>Contactez-nous</h1>
+        <p class="subtitle">
+          Remplissez le formulaire ci-dessous et nous vous répondrons
+          rapidement.
+        </p>
+
+        <div class="success-message" id="successMessage">
+          Votre message a été envoyé avec succès !
+        </div>
+
         <form id="contactForm">
           <div class="form-group">
             <label for="nom">Nom *</label>
             <input type="text" id="nom" name="nom" required />
+            <span class="error-message" id="nomError"
+              >Veuillez entrer votre nom</span
+            >
           </div>
 
           <div class="form-group">
             <label for="prenom">Prénom *</label>
             <input type="text" id="prenom" name="prenom" required />
+            <span class="error-message" id="prenomError"
+              >Veuillez entrer votre prénom</span
+            >
           </div>
 
           <div class="form-group">
             <label for="email">Email *</label>
             <input type="email" id="email" name="email" required />
+            <span class="error-message" id="emailError"
+              >Veuillez entrer un email valide</span
+            >
           </div>
 
           <div class="form-group">
             <label for="telephone">Téléphone *</label>
             <input type="tel" id="telephone" name="telephone" required />
+            <span class="error-message" id="telephoneError"
+              >Veuillez entrer un numéro de téléphone valide</span
+            >
           </div>
 
           <div class="form-group">
             <label for="message">Message *</label>
             <textarea id="message" name="message" required></textarea>
+            <span class="error-message" id="messageError"
+              >Veuillez entrer votre message</span
+            >
           </div>
 
-          <button type="submit">Envoyer</button>
+          <button type="submit">Envoyer le message</button>
         </form>
-
-        <div id="resultat"></div>
       </div>
 
       <!-- <form id="contactForm" action="#" method="#">
@@ -135,6 +157,20 @@
           Email:tastafrica13@gmail.com <br />
           Téléphone: +33 6 12 34 56 78
         </p>
+        <div class="sv">
+          UNE RÉCLAMATION ? ECRIVEZ-NOUS À : QUALITE@TASTEAFRICA.FR
+          <br /><br />UNE COLLABORATION OU UNE DEMANDE D’INFORMATION ? <br />
+          <br />
+          CONTACTEZ-NOUS À : COMMUNICATION@TASTEAFRICAGROUP.FR <br />
+          <br />ENVIE DE REJOINDRE NOTRE EQUIPE ?<br />
+          <br />
+          ENVOYEZ UN MESSAGE À : <br />
+          <br />
+          RECRUTEMENT@TASTEAFRICAGROUP.FR <br />
+          UNE AUTRE DEMANDE ? ÉCRIVEZ-NOUS À : <br />
+          <br />
+          ADMINISTRATION@TASTEAFRICAGROUP.FR
+        </div>
       </div>
 
       <div class="logofoot">
@@ -143,6 +179,91 @@
     </footer>
     <script src="js/index.js"></script>
     <script src="js/burger.js"></script>
-    <script src="js/resa.js"></script>
+    <script>
+      const form = document.getElementById("contactForm");
+      const successMessage = document.getElementById("successMessage");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let isValid = true;
+
+        // Réinitialiser les erreurs
+        document
+          .querySelectorAll(".error")
+          .forEach((el) => el.classList.remove("error"));
+        document
+          .querySelectorAll(".error-message")
+          .forEach((el) => el.classList.remove("show"));
+
+        // Validation du nom
+        const nom = document.getElementById("nom");
+        if (nom.value.trim() === "") {
+          nom.classList.add("error");
+          document.getElementById("nomError").classList.add("show");
+          isValid = false;
+        }
+
+        // Validation du prénom
+        const prenom = document.getElementById("prenom");
+        if (prenom.value.trim() === "") {
+          prenom.classList.add("error");
+          document.getElementById("prenomError").classList.add("show");
+          isValid = false;
+        }
+
+        // Validation de l'email
+        const email = document.getElementById("email");
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email.value)) {
+          email.classList.add("error");
+          document.getElementById("emailError").classList.add("show");
+          isValid = false;
+        }
+
+        // Validation du téléphone
+        const telephone = document.getElementById("telephone");
+        const telRegex = /^[0-9\s\+\-\(\)]{10,}$/;
+        if (!telRegex.test(telephone.value)) {
+          telephone.classList.add("error");
+          document.getElementById("telephoneError").classList.add("show");
+          isValid = false;
+        }
+
+        // Validation du message
+        const message = document.getElementById("message");
+        if (message.value.trim() === "") {
+          message.classList.add("error");
+          document.getElementById("messageError").classList.add("show");
+          isValid = false;
+        }
+
+        // Si tout est valide
+        if (isValid) {
+          // Afficher le message de succès
+          successMessage.classList.add("show");
+
+          // Réinitialiser le formulaire
+          form.reset();
+
+          // Masquer le message après 5 secondes
+          setTimeout(() => {
+            successMessage.classList.remove("show");
+          }, 5000);
+
+          // Ici vous pouvez ajouter le code pour envoyer les données à un serveur
+          console.log("Formulaire soumis avec succès!");
+        }
+      });
+
+      // Retirer l'erreur lors de la saisie
+      document.querySelectorAll("input, textarea").forEach((input) => {
+        input.addEventListener("input", function () {
+          this.classList.remove("error");
+          const errorId = this.id + "Error";
+          document.getElementById(errorId).classList.remove("show");
+        });
+      });
+    </script>
   </body>
 </html>

@@ -41,7 +41,7 @@
     </header>
     <main>
       <h1>La Carte</h1>
-
+      <div id = "Searchbar">
       <input type="text" id="searchInput" placeholder="Rechercher..." />
 
       <select id="categorySelect">
@@ -50,6 +50,7 @@
         <option value="boisson">Boissons</option>
         <option value="dessert">Desserts</option>
       </select>
+      </div>
 
       <div id="resultats"></div>
 
@@ -95,6 +96,21 @@
       <div class="logofoot">
         <img src="images/newlogo.png" alt="Logo Taste Africa" />
       </div>
+
+      <!-- <div class="sv">
+        UNE RÉCLAMATION ? ECRIVEZ-NOUS À : QUALITE@TASTEAFRICA.FR
+        <br /><br />UNE COLLABORATION OU UNE DEMANDE D’INFORMATION ? <br />
+        <br />
+        CONTACTEZ-NOUS À : COMMUNICATION@TASTEAFRICAGROUP.FR <br />
+        <br />ENVIE DE REJOINDRE NOTRE EQUIPE ?<br />
+        <br />
+        ENVOYEZ UN MESSAGE À : <br />
+        <br />
+        RECRUTEMENT@TASTEAFRICAGROUP.FR <br />
+        UNE AUTRE DEMANDE ? ÉCRIVEZ-NOUS À : <br />
+        <br />
+        ADMINISTRATION@TASTEAFRICAGROUP.FR
+      </div> -->
     </footer>
 
     <script src="js/index.js"></script>
@@ -154,10 +170,10 @@
         .then((res) => res.json())
         .then((data) => {
           allmenus = data;
-          dataFiltered=allmenus
-          console.log(dat);
+          dataFiltered = allmenus;
+          console.log(data);
         });
-      
+
       categorySelect.addEventListener("change", function () {
         menus.innerHTML = "";
         const categorieChoisie = categorySelect.value;
