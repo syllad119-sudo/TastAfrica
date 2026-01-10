@@ -106,57 +106,58 @@
       const resultats = document.getElementById("resultats");
       // const url = window.location.origin + "/js/data/menu.json";
 
-      fetch(url)
-        .then((response) => response.json())
+      // fetch(url)
+      //   .then((response) => response.json())
 
-        .then((data) => {
-          console.log(data);
-          menuData = [data.plats, data.boissons, data.desserts];
-          console.log(menuData);
-        });
+      //   .then((data) => {
+      //     console.log(data);
+      //     menuData = [data.plats, data.boissons, data.desserts];
+      //     console.log(menuData);
+      //   });
 
       // searchPlat.addEventListener("input", lancerRecherche);
-      categorySelect.addEventListener("change", function () {
-        menus.innerHTML = "";
-        fetch(url)
-          .then((response) => response.json())
+      // categorySelect.addEventListener("change", function () {
+      //   menus.innerHTML = "";
+      //   fetch(url)
+      //     .then((response) => response.json())
 
-          .then((data) => {
-            const categorieChoisie = categorySelect.value;
-            console.log(data);
-            const dataFiltered = data.filter(
-              (item) => item.categorie == categorieChoisie
-            );
-            console.log(dataFiltered);
-            for (let index = 0; index < dataFiltered.length; index++) {
-              // console.log(index);
+      //     .then((data) => {
+      //       const categorieChoisie = categorySelect.value;
+      //       console.log(data);
+      //       const dataFiltered = data.filter(
+      //         (item) => item.categorie == categorieChoisie
+      //       );
+      //       console.log(dataFiltered);
+      //       for (let index = 0; index < dataFiltered.length; index++) {
+      //         // console.log(index);
 
-              const article = document.createElement("article");
-              article.classList = "menu";
-              article.style.backgroundColor = "#BF7E04";
-              article.innerHTML = `
-            <img src="${dataFiltered[index].image}" alt="${dataFiltered[index].name}" >
-            <h2>${dataFiltered[index].name}</h2>
-            <p>Prix: ${dataFiltered[index].price} €</p>
-            <p>Categorie: ${dataFiltered[index].categorie}</p>
-            <p>description: ${dataFiltered[index].desc}</p>
+      //         const article = document.createElement("article");
+      //         article.classList = "menu";
+      //         article.style.backgroundColor = "#BF7E04";
+      //         article.innerHTML = `
+      //       <img src="${dataFiltered[index].image}" alt="${dataFiltered[index].name}" >
+      //       <h2>${dataFiltered[index].name}</h2>
+      //       <p>Prix: ${dataFiltered[index].price} €</p>
+      //       <p>Categorie: ${dataFiltered[index].categorie}</p>
+      //       <p>description: ${dataFiltered[index].desc}</p>
 
-            <p> <a href="detail.html?id=${dataFiltered[index].id}">En savoir plus</a> </p>
+      //       <p> <a href="detail.html?id=${dataFiltered[index].id}">En savoir plus</a> </p>
 
-            `;
-              menus.appendChild(article);
-            }
-          });
-      });
+      //       `;
+      //         menus.appendChild(article);
+      //       }
+      //     });
+      // });
       // filtres toute categories
       let allmenus = [];
       fetch(url)
         .then((res) => res.json())
         .then((data) => {
           allmenus = data;
-          console.log(allmenus);
+          dataFiltered=allmenus
+          console.log(dat);
         });
-
+      
       categorySelect.addEventListener("change", function () {
         menus.innerHTML = "";
         const categorieChoisie = categorySelect.value;
@@ -226,24 +227,24 @@
       //     return;
       //   }
 
-    //     liste.forEach((item) => {
-    //       const article = document.createElement("article");
-    //       article.classList.add("menu");
+      //     liste.forEach((item) => {
+      //       const article = document.createElement("article");
+      //       article.classList.add("menu");
 
-    //       article.innerHTML = `
-    //   <img src="${item.image}" alt="${item.name}">
-    //   <h2>${item.name}</h2>
-    //   <p>Prix: ${item.price} €</p>
-    //   <p>Categorie: ${item.categorie}</p>
-    //   <p>${item.desc}</p>
-    //   <p>
-    //     <a href="detail.html?id=${item.id}">En savoir plus</a>
-    //   </p>
-    // `;
+      //       article.innerHTML = `
+      //   <img src="${item.image}" alt="${item.name}">
+      //   <h2>${item.name}</h2>
+      //   <p>Prix: ${item.price} €</p>
+      //   <p>Categorie: ${item.categorie}</p>
+      //   <p>${item.desc}</p>
+      //   <p>
+      //     <a href="detail.html?id=${item.id}">En savoir plus</a>
+      //   </p>
+      // `;
 
-    //       menus.appendChild(article);
-    //     });
-    //   }
+      //       menus.appendChild(article);
+      //     });
+      //   }
 
       // function lancerRecherche() {
       //   const texteRecherche = searchPlat.value.toLowerCase();
