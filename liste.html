@@ -3,14 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Restaurant Africain</title>
+    <title>Menu</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/burger.css" />
   </head>
   <body>
     <header>
       <div>
-        <img class="logo" src="images/newlogo.png" alt="Logo Taste Africa" />
+        <a href="/index.html">
+          <img class="logo" src="images/newlogo.png" alt="Logo Taste Africa"
+        /></a>
       </div>
       <!-- Bouton burger -->
       <div id="burgernav">
@@ -29,47 +31,24 @@
         <img src="images/facebook-brands-solid-full-_2_.jpg" alt="fb" />
         <img src="images/tiktok-brands-solid-full.jpg" alt="tiktok" />
       </div>
-
-      <!-- <nav>
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="">A propos</a></li>
-        </ul>
-      </nav> -->
     </header>
     <main>
       <h1>La Carte</h1>
-      <div id = "Searchbar">
-      <input type="text" id="searchInput" placeholder="Rechercher..." />
+      <div id="Searchbar">
+        <input type="text" id="searchInput" placeholder="Rechercher..." />
 
-      <select id="categorySelect">
-        <option value="all">Toutes les catégories</option>
-        <option value="plat">Plats</option>
-        <option value="boisson">Boissons</option>
-        <option value="dessert">Desserts</option>
-      </select>
+        <select id="categorySelect">
+          <option value="all">Toutes les catégories</option>
+          <option value="plat">Plats</option>
+          <option value="boisson">Boissons</option>
+          <option value="dessert">Desserts</option>
+        </select>
       </div>
 
       <div id="resultats"></div>
 
-      <!-- <section class="sort">
-        <select id="sortSelect">
-          <option value="">Trier par</option>
-          <option value="asc">Prix : du moins cher au plus cher</option>
-          <option value="desc">Prix : du plus cher au moins cher</option>
-        </select>
-      </section> -->
-
-      <!-- <section id="panier">
-        <h2>🛒 Mon panier</h2>
-        <ul id="panierListe"></ul>
-        <p id="total">Total : 0 €</p>
-      </section> -->
-
-      <div id="menus"></div>
       <!-- affciher liste des plats -->
+      <div id="menus"></div>
     </main>
 
     <footer>
@@ -82,89 +61,41 @@
 
       <div class="footer">
         <p>
-          <img
-            src="images/location-dot-solid-full-_1_.jpg"
-            alt="logosite"
-          />Tast Africa
+          <img src="images/location-dot-solid-full-_1_.jpg" alt="" />Tast Africa
           <br />
           Contactez-nous <br />
           Email:tastafrica13@gmail.com <br />
           Téléphone: +33 6 12 34 56 78
         </p>
+        <div class="sv">
+          UNE RÉCLAMATION ? ECRIVEZ-NOUS À : QUALITE@TASTEAFRICA.FR
+          <br /><br />UNE COLLABORATION OU UNE DEMANDE D’INFORMATION ? <br />
+          <br />
+          CONTACTEZ-NOUS À : COMMUNICATION@TASTEAFRICAGROUP.FR <br />
+          <br />ENVIE DE REJOINDRE NOTRE EQUIPE ?<br />
+          <br />
+          ENVOYEZ UN MESSAGE À : <br />
+          <br />
+          RECRUTEMENT@TASTEAFRICAGROUP.FR <br />
+          UNE AUTRE DEMANDE ? ÉCRIVEZ-NOUS À : <br />
+          <br />
+          ADMINISTRATION@TASTEAFRICAGROUP.FR
+        </div>
       </div>
 
       <div class="logofoot">
         <img src="images/newlogo.png" alt="Logo Taste Africa" />
       </div>
-
-      <!-- <div class="sv">
-        UNE RÉCLAMATION ? ECRIVEZ-NOUS À : QUALITE@TASTEAFRICA.FR
-        <br /><br />UNE COLLABORATION OU UNE DEMANDE D’INFORMATION ? <br />
-        <br />
-        CONTACTEZ-NOUS À : COMMUNICATION@TASTEAFRICAGROUP.FR <br />
-        <br />ENVIE DE REJOINDRE NOTRE EQUIPE ?<br />
-        <br />
-        ENVOYEZ UN MESSAGE À : <br />
-        <br />
-        RECRUTEMENT@TASTEAFRICAGROUP.FR <br />
-        UNE AUTRE DEMANDE ? ÉCRIVEZ-NOUS À : <br />
-        <br />
-        ADMINISTRATION@TASTEAFRICAGROUP.FR
-      </div> -->
     </footer>
 
     <script src="js/index.js"></script>
     <script src="js/burger.js"></script>
-    <script src="js/filter.js"></script>
+    <!-- Js  Recherche par Categorie  -->
     <script>
       const searchPlat = document.getElementById("searchInput");
       const categorySelect = document.getElementById("categorySelect");
       const resultats = document.getElementById("resultats");
-      // const url = window.location.origin + "/js/data/menu.json";
 
-      // fetch(url)
-      //   .then((response) => response.json())
-
-      //   .then((data) => {
-      //     console.log(data);
-      //     menuData = [data.plats, data.boissons, data.desserts];
-      //     console.log(menuData);
-      //   });
-
-      // searchPlat.addEventListener("input", lancerRecherche);
-      // categorySelect.addEventListener("change", function () {
-      //   menus.innerHTML = "";
-      //   fetch(url)
-      //     .then((response) => response.json())
-
-      //     .then((data) => {
-      //       const categorieChoisie = categorySelect.value;
-      //       console.log(data);
-      //       const dataFiltered = data.filter(
-      //         (item) => item.categorie == categorieChoisie
-      //       );
-      //       console.log(dataFiltered);
-      //       for (let index = 0; index < dataFiltered.length; index++) {
-      //         // console.log(index);
-
-      //         const article = document.createElement("article");
-      //         article.classList = "menu";
-      //         article.style.backgroundColor = "#BF7E04";
-      //         article.innerHTML = `
-      //       <img src="${dataFiltered[index].image}" alt="${dataFiltered[index].name}" >
-      //       <h2>${dataFiltered[index].name}</h2>
-      //       <p>Prix: ${dataFiltered[index].price} €</p>
-      //       <p>Categorie: ${dataFiltered[index].categorie}</p>
-      //       <p>description: ${dataFiltered[index].desc}</p>
-
-      //       <p> <a href="detail.html?id=${dataFiltered[index].id}">En savoir plus</a> </p>
-
-      //       `;
-      //         menus.appendChild(article);
-      //       }
-      //     });
-      // });
-      // filtres toute categories
       let allmenus = [];
       fetch(url)
         .then((res) => res.json())

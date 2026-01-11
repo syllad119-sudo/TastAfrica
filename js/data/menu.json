@@ -28,7 +28,7 @@
     "categorie": "plat",
     "createdAt": "",
     "price": 15,
-    "desc": "",
+    "desc": "Riz cuisiné dans la sauce tomate avec des légumes, poisson.",
     "allergen": [""]
   },
   {
@@ -38,7 +38,7 @@
     "categorie": "plat",
     "createdAt": "",
     "price": 15,
-    "desc": "",
+    "desc": "Riz  blanc, sauce d’arachide, avec tomate",
     "allergen": [""]
   },
   {
@@ -48,7 +48,7 @@
     "categorie": "boisson",
     "createdAt": "",
     "price": "3",
-    "desc": "",
+    "desc": "Sed ut perspiciatis unde omnis iste natus ",
     "allergen": [""]
   },
   {
@@ -58,7 +58,7 @@
     "categorie": "boisson",
     "createdAt": "",
     "price": "3",
-    "desc": "",
+    "desc": "Sed ut perspiciatis unde omnis iste natus",
     "allergen": [""]
   },
   {
@@ -68,7 +68,7 @@
     "categorie": "boisson",
     "createdAt": "",
     "price": "3",
-    "desc": "",
+    "desc": "Sed ut perspiciatis unde omnis iste natus",
     "allergen": [""]
   },
   {
@@ -78,7 +78,7 @@
     "categorie": "boisson",
     "createdAt": "",
     "price": "3",
-    "desc": "",
+    "desc": "Sed ut perspiciatis unde omnis iste natus",
     "allergen": [""]
   },
   {
@@ -88,7 +88,7 @@
     "categorie": "dessert",
     "createdAt": "",
     "price": "5",
-    "desc": "",
+    "desc": "Sed ut perspiciatis unde omnis iste natus",
     "allergen": [""]
   },
   {
@@ -98,7 +98,7 @@
     "categorie": "dessert",
     "createdAt": "",
     "price": "5",
-    "desc": "",
+    "desc": "Sed ut perspiciatis unde omnis iste natus",
     "allergen": [""]
   },
   {
@@ -108,7 +108,7 @@
     "categorie": "dessert",
     "createdAt": "",
     "price": "5",
-    "desc": "",
+    "desc": "Sed ut perspiciatis unde omnis iste natus",
     "allergen": [""]
   },
   {
@@ -118,7 +118,7 @@
     "categorie": "dessert",
     "createdAt": "",
     "price": "5",
-    "desc": "",
+    "desc": "Sed ut perspiciatis unde omnis iste natus",
     "allergen": [""]
   }
 ]

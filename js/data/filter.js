@@ -8,5 +8,5 @@ searchInput.addEventListener("input", () => {
     item.nom.toLowerCase().includes(value)
   );
 
-  afficherMenu(resultats);
+  console.log(resultats);
 });
