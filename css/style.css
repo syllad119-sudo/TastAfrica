@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
 }
-
+/* CSS page d'accueil  */
 img {
   max-width: 100%;
   height: auto;
@@ -9,11 +9,16 @@ img {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
- max-width: 100%;
+  max-width: 100%;
   margin: 0;
   min-height: 100vh;
 }
-
+.back {
+  background-image: url(/images/plat-africain-background.jpg);
+  min-height: 80vh;
+  background-size: cover;
+  background-position: center;
+}
 iframe {
   width: 100%;
   height: 100vh;
@@ -21,7 +26,6 @@ iframe {
   padding: 0;
   border: none;
 }
-
 h1,
 h2,
 h3,
@@ -31,20 +35,17 @@ h6,
 p {
   margin: 0 0 16px 0;
 }
-
 .search {
   text-align: center;
   margin: 15px;
 }
-
 .search input {
-  padding: 10px;
+  padding: 50px;
   width: 100px;
   max-width: 80%;
   border-radius: 5px;
   border: 1px solid black;
 }
-
 #searchbar {
   text-align: center;
 }
@@ -52,8 +53,8 @@ main {
   margin-bottom: 0;
   max-width: 100%;
   min-height: 100vh;
+  background-color: #2f5d50;
 }
-
 h1 {
   text-align: center;
   color: white;
@@ -63,16 +64,15 @@ h1 {
   font-size: 30px;
   color: white;
 }
-
 h2 {
   text-align: center;
   color: white;
 }
-
 p {
   text-align: center;
 }
 
+/* Main page liste   */
 #menus {
   max-width: 1200px;
   margin: auto;
@@ -80,7 +80,6 @@ p {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 25px;
 }
-
 .menu {
   border-radius: 2%;
 }
@@ -88,43 +87,6 @@ p {
 article {
   border-radius: 8px;
 }
-
-footer {
-  background-color: black;
-  text-align: center;
-  max-width: 100%;
-  color: white;
-  padding: 50px;
-  margin-top: 0;
-}
-
-.logofoot {
-  width: 100px;
-  text-align: left;
-  margin-top: auto;
-}
-
-.contactfoot {
-  text-align: left;
-  margin-top: 0;
-}
-
-.back {
-  background-image: url(/images/plat-africain-background.jpg);
-  min-height: 80vh;
-  background-size: cover;
-  background-position: center;
-}
-
-.back__content {
-  padding: 32px 16px;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.86),
-    transparent
-  );
-}
-
 .card {
   text-align: center;
   margin: 0;
@@ -132,36 +94,6 @@ footer {
   padding: 0;
   border: none;
 }
-
-.contactfoot img {
-  width: 40px;
-}
-
-.contactfoot {
-  text-align: left;
-}
-
-.sort {
-  text-align: center;
-  margin: 10px;
-}
-
-.sort select {
-  padding: 10px;
-  border-radius: 5px;
-}
-.sv {
-  float: right;
-  display: block;
-  text-align: right;
-}
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  max-width: 100%;
-}
-
 #menu-detail {
   position: relative;
 }
@@ -183,24 +115,25 @@ footer {
   width: 100%;
   margin: 20px;
   justify-content: center;
+  }
+.contact-section {
+  display: flex;
+  justify-content: center; /* centre horizontalement */
+  padding: 40px 20px;
 }
-
 h1 {
   color: white;
   margin-bottom: 10px;
   font-size: 28px;
 }
-
 .subtitle {
   color: white;
   margin-bottom: 30px;
   font-size: 14px;
 }
-
 .form-group {
   margin-bottom: 25px;
 }
-
 label {
   display: block;
   margin-bottom: 8px;
@@ -208,41 +141,35 @@ label {
   font-weight: 500;
   font-size: 14px;
 }
-
 input,
 textarea {
-  
-  padding: 12px 15px;
+  padding: 10px 13px;
   border: 2px solid black;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 30px;
   transition: all 0.3s ease;
   font-family: inherit;
 }
-
 input:focus,
 textarea:focus {
   outline: none;
   border-color: #667eea;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
-
 textarea {
   resize: vertical;
   min-height: 120px;
+  font-size: 35px;
 }
-
 .error {
   border-color: #e74c3c !important;
 }
-
 .error-message {
   color: #e74c3c;
   font-size: 12px;
   margin-top: 5px;
   display: none;
 }
-
 .error-message.show {
   display: block;
 }
@@ -285,22 +212,62 @@ button:active {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .nav {
-    position: absolute;
-    top: 100%;
+  main {
     right: 0;
     background: #222;
-    flex-direction: column;
-    width: 200px;
-    padding: 20px;
-    display: none;
-  
-  }}
-
-  @media (max-width: 768px) {
-  body {
-    font-size: 14px;
-    ;
+    margin: auto;
   }
 }
-body { max-width: 100%;}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+/* Footer */
+footer {
+  background-color: black;
+  text-align: center;
+  max-width: 100%;
+  color: white;
+  padding: 50px;
+  margin-top: 0;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+}
+
+.contactfoot img {
+  width: 40px;
+}
+
+.contactfoot {
+  text-align: left;
+}
+
+.logofoot {
+  width: 100px;
+  text-align: left;
+  margin-top: auto;
+}
+
+.contactfoot {
+  text-align: left;
+  margin-top: 0;
+}
+.sort {
+  text-align: center;
+  margin: 10px;
+}
+
+.sort select {
+  padding: 10px;
+  border-radius: 5px;
+} */
+ .sv {
+  float: right;
+  display: block;
+  text-align: right;
+} 

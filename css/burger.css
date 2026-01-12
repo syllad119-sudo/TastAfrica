@@ -1,46 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+/* CSS header   */
 header {
   background-color: #bf7e04;
   text-align: center;
   max-width: 100%;
   color: white;
   padding: 16px;
-  
 }
 .logo {
   width: 150px;
 }
-
 .nav {
   display: flex;
   gap: 30px;
   justify-content: center;
 }
-
 .nav a {
   color: white;
   text-decoration: none;
   font-size: 20px;
 }
-
 .r-social {
   text-align: left;
   width: 20%;
 }
-
 .nav {
   display: flex;
   gap: 20px;
   font-size: 25px;
   text-align: center;
 }
-
 .nav a {
   color: white;
   text-decoration: none;
   text-align: center;
 }
 
-/* Burger */
+/* Menu Burger */
 .burger {
   display: none;
   flex-direction: column;
@@ -56,8 +55,10 @@ header {
   transition: 0.3s;
 }
 
-#burgernav { position: relative;
-padding: 16px 0;}
+#burgernav {
+  position: relative;
+  padding: 16px 0;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
