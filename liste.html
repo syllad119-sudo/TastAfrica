@@ -34,18 +34,15 @@
     </header>
     <main>
       <h1>La Carte</h1>
-      <div id="Searchbar">
-        <input type="text" id="searchInput" placeholder="Rechercher..." />
 
-        <select id="categorySelect">
-          <option value="all">Toutes les catégories</option>
-          <option value="plat">Plats</option>
-          <option value="boisson">Boissons</option>
-          <option value="dessert">Desserts</option>
-        </select>
-      </div>
-
-      <div id="resultats"></div>
+      <select id="categorySelect">
+        <option value="all">Toutes les catégories</option>
+        <option value="plat">Plats</option>
+        <option value="boisson">Boissons</option>
+        <option value="dessert">Desserts</option>
+      </select>
+      <!-- afficher les menus filtrer  -->
+      <div id="dataFiltered"></div>
 
       <!-- affciher liste des plats -->
       <div id="menus"></div>
@@ -92,9 +89,11 @@
     <script src="js/burger.js"></script>
     <!-- Js  Recherche par Categorie  -->
     <script>
-      const searchPlat = document.getElementById("searchInput");
       const categorySelect = document.getElementById("categorySelect");
-      const resultats = document.getElementById("resultats");
+      const dataFiltered = document.getElementById("dataFiltered");
+      // dataFiltered va contenir les menus a afficher
+
+      
 
       let allmenus = [];
       fetch(url)
@@ -116,7 +115,8 @@
             (item) => item.categorie === categorieChoisie
           );
         }
-      console.log(dataFiltered);
+
+        console.log(dataFiltered);
         for (let index = 0; index < dataFiltered.length; index++) {
           console.log(index);
 
@@ -136,13 +136,40 @@
           menus.appendChild(article);
         }
       });
+
       // Fonctionnalite fil par barre de recherche
-      // fetch(url)
-      //   .then((response) => response.json())
-      //   .then((data) => {
-      //     menusData = data;
-      //     donneesFiltrees = menusData;
-      //     afficherMenus(donneesFiltrees);
+
+      //  searchPlat.addEventListener("change", function () {
+      //     resultats.innerHTML = ""
+
+      //     const nomPlat = searchPlat.value;
+      //     let dataFiltered;
+      //     if (nomPlat === "all") {
+      //       dataFiltered = allmenus;
+      //     } else {
+      //       dataFiltered = allmenus.filter(
+      //         (item) => item.name === nomPlat
+      //       );
+      //     }
+      //   console.log(dataFiltered);
+      //     for (let index = 0; index < dataFiltered.length; index++) {
+      //       console.log(index);
+
+      //       const article = document.createElement("article");
+      //       article.classList = "menu";
+      //       article.style.backgroundColor = "#BF7E04";
+      //       article.innerHTML = `
+      //         <img src="${dataFiltered[index].image}" alt="${dataFiltered[index].name}" >
+      //         <h2>${dataFiltered[index].name}</h2>
+      //         <p>Prix: ${dataFiltered[index].price} €</p>
+      //         <p>Categorie: ${dataFiltered[index].categorie}</p>
+      //         <p>description: ${dataFiltered[index].desc}</p>
+
+      //         <p> <a href="detail.html?id=${dataFiltered[index].id}">En savoir plus</a> </p>
+
+      //         `;
+      //       resultats.appendChild(article);
+      //     }
       //   });
 
       // searchInput.addEventListener("input", appliquerFiltres);

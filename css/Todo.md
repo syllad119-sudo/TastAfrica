@@ -18,3 +18,6 @@ index.html qui est la première page du site
 [] lighthouse Faire des tests avec lighthouse dans Chrome DevTools pour vérifier les performances SEO
 [] robots.txt
 [] sitemap.xml
+
+
+Pas de code en Noir 

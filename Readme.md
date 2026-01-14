@@ -1,67 +1,44 @@
-# Projet fil rouge
+# Tast Africa - Application de restauration  
 
-## TAST AFRICA
+![alt text](Readme.png)
 
-## Obejectif :
+## Description 
 
-## 1-  Page d'accueil du Restaurant 
- - Présenter l'identité du Restaurant 
- - Nom du Restaurant 
- - Images de plats africains (12 plats )
- - Bouton  "Voir menu"
+Tast Africa est une application web restauration permettant de decouvrir la cuisine Ouest africaine ,de commandé et reserver en ligne .
 
-== HTML Semantique , flexbox/grid responsive 
- 
-## 2- Menu Interactif 
-objectif : afficher les plats 
-Fonctionnalités : 
+## Compétences visées 
 
-- Liste de plats ( ex : Concoye , Yassa ,)
-- Prix 
--  Categories :
-- Entrées 
-- Plat principaux 
-- Desserts 
-- Boissons 
-- Filtrer les plats par categories (js)
+## Réaliser des interfaces utilisateur statiques web et web mobile 
 
-==Competences : Tableaux / Cartes , Manipulation DOM
-
-## 3- Details d'un plat (popup ou section )
-Objectif : Enrichir l'experience utilisateur
-## Fonctionnalités :
-- image du plat
--  Description 
-- Ingredients principaux 
-
-== Competences : Evenement Js, Modals 
-
-## 4- Panier Simple ( Sans paiement )
-Objectif: Logique javaScript
-## Fonctionnalités : 
-
-- Ajouter un plat au Panier 
-- Afficher :
-   - nom du plat 
-   - quantité
-   - prix total 
-- Bouton "vider le panier"
-
-== Competences : Tableaux Js , Calculs, mise à jour dynamique 
-
-## Formulaire de Reservation
-- Objectif : interaction utilisateur 
-- Champs : 
-- Nom 
-- Date 
-- Heure 
-- Nombre de personnes 
- 
- # Fonctionnalités
-- Validation simple ' (champs obligatoire)
-- Message de confirmation ( sans backend )
-== Competences : formulaire , validation JS 
+** Competences** : Developpement de pages web utilisant html5 et Css 3 , comprehension de la mise en page responsive 
+**Exemple** : Codage en HTML5 et CSS3 pour structurer des pages web et appliquer des styles
 
 
+### Développer la partie dynamique des interfaces utilisateur web ou web mobile
 
+- **Compétences** : Programmation en JavaScript, utilisation de bibliothèques et frameworks pour enrichir l'interaction utilisateur.
+- **Exemple** : Utilisation de JavaScript pour rendre les interfaces interactives.
 
+## Fonctionnalités
+
+- Affichage en grille responsive (4 colonnes desktop, 1 colonne mobile)
+- Recherche de recettes par nom
+- Tri par categorie 
+- Tri par Nom 
+- Page de détails avec ingrédients et instructions
+- Design moderne et accessible
+
+## Technologies utilisées
+
+- HTML5 (balises sémantiques)
+- CSS3 (Flexbox, Grid, Media Queries)
+- JavaScript ES6 (Fetch API, Modules)
+- API : DummyJSON (https://dummyjson.com/recipes)
+
+## Installation
+
+1. Cloner le repository
+```bash
+git clone https://github.com/syllad119-sudo/TastAfrica
+cd Tast Africa 
+-

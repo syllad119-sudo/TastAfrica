@@ -5,6 +5,7 @@
 img {
   max-width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
 body {
@@ -19,6 +20,12 @@ body {
   background-size: cover;
   background-position: center;
 }
+
+.back__content {
+  color: white;
+  font-size: x-large;
+}
+
 iframe {
   width: 100%;
   height: 100vh;
@@ -35,20 +42,7 @@ h6,
 p {
   margin: 0 0 16px 0;
 }
-.search {
-  text-align: center;
-  margin: 15px;
-}
-.search input {
-  padding: 50px;
-  width: 100px;
-  max-width: 80%;
-  border-radius: 5px;
-  border: 1px solid black;
-}
-#searchbar {
-  text-align: center;
-}
+
 main {
   margin-bottom: 0;
   max-width: 100%;
@@ -60,7 +54,7 @@ h1 {
   color: white;
 }
 
-.back p {
+.Fack p {
   font-size: 30px;
   color: white;
 }
@@ -72,7 +66,7 @@ p {
   text-align: center;
 }
 
-/* Main page liste   */
+/* Css  page liste  Json */
 #menus {
   max-width: 1200px;
   margin: auto;
@@ -85,6 +79,9 @@ p {
 }
 
 article {
+  border-radius: 8px;
+}
+article.image {
   border-radius: 8px;
 }
 .card {
@@ -115,7 +112,7 @@ article {
   width: 100%;
   margin: 20px;
   justify-content: center;
-  }
+}
 .contact-section {
   display: flex;
   justify-content: center; /* centre horizontalement */
@@ -213,17 +210,33 @@ button:active {
 /* Responsive */
 @media (max-width: 768px) {
   main {
-    right: 0;
-    background: #222;
+    /* right: 0; */
+    background: #2f5d50;
     margin: auto;
+}body {
+    font-size: 14px;
+  }
+
+/* a apprendre  */
+  .footer{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu img{
+    width: 100%;
+    object-fit: cover;
   }
 }
 
-@media (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
+
+
+
+
+body {
+  max-width: 100%;
 }
+
 /* Footer */
 footer {
   background-color: black;
@@ -265,9 +278,26 @@ footer {
 .sort select {
   padding: 10px;
   border-radius: 5px;
-} */
- .sv {
+}
+.sv {
   float: right;
   display: block;
   text-align: right;
-} 
+}
+
+.container {
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#categorySelect {
+  width: 15%;
+  padding: 11px;
+  margin: 16px;
+}
+
+
