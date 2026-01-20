@@ -149,7 +149,8 @@
 
         // Validation du nom
         const nom = document.getElementById("nom");
-        if (nom.value.trim() === "") {
+         const Regexnom = /^[a-zA-ZÀ-ÿ]{2,20}$/;
+        if (!Regexnom.test (nom.value)) {
           nom.classList.add("error");
           document.getElementById("nomError").classList.add("show");
           isValid = false;
@@ -157,7 +158,8 @@
 
         // Validation du prénom
         const prenom = document.getElementById("prenom");
-        if (prenom.value.trim() === "") {
+        const Regexprenom = /^[a-zA-ZÀ-ÿ]{4,20}$/;
+        if (!Regexprenom.test(prenom.value) ) {
           prenom.classList.add("error");
           document.getElementById("prenomError").classList.add("show");
           isValid = false;
