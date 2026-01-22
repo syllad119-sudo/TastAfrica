@@ -1,0 +1,21 @@
+Donnée,type,longueur,contrainte,exemple,description	
+user_lastname,varchar,100,obligatoire ,sylla,nom pour le formualire
+user_firstname ,varchar,100,obligatoire ,David,prenom Formulaire contact
+user_email ,varchar,255,unique,sylladavid007@yahoo.fr,email du formulaire
+user_phone,nombre entier ,15,obligatoire ,0782850797,telephone formulaire de conact 
+id_plat ,nombre entier ,,auto_increment primary key ,1,identifiant unique 
+name_plat ,varchar ,100,obligatoire,yassa poulet,nom du plat 
+categorie_menu,varchar,100,obligatoire,dessert ,la categorie de menu
+price_plat,nombre entier ,,not null,15,le prix du plat 
+desc_plat ,text long,255,obligatoire ,texte en quelque mots ,decrire le texte 
+createdAt_plat,date et heure ,10,obligatoire ,2025-01-05,
+id_detail ,nombre entier ,15,auto_increment primary key ,3,auto increment 
+image_plat ,varchar ,255,obligatoire ,url,image de la categori
+id_admin ,nombre entier ,20,auto_increment primary key ,ADM001,identifiant administrateur du site 
+name_admin ,varchar ,100,obligatoire ,Thierno,nom de l'administrateur 
+motsdepasse_admin,varchar ,100,unique ,d444d7,mots de passe administrateur 
+email_admin,varchar,100,unique ,syllad119@gmail.com,email de l'administrateur 
+id_reservation,nombre entier ,15,auto_increment primary key ,res002,identifiant de reservation 
+createdAd-reservation,,,,,
+date_reservation ,date heure ,100,obligatoire ,2025-01-05,la date de reservation 
+allergene,varchar ,100,obligatoire ,,

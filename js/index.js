@@ -16,7 +16,7 @@ fetch(url)
     console.log(data[0].name); //affichage du fichier json7
     // parcourir le tableau et crée des elements pour chaque mois
     for (let index = 0; index < data.length; index++) {
-      console.log(index); 
+      console.log(index);
 
       const article = document.createElement("article");
       article.classList = "menu";
@@ -27,7 +27,6 @@ fetch(url)
             <p>Prix: ${data[index].price} € </p>
             <p>Categorie: ${data[index].categorie} </p>
             <p>description: ${data[index].desc}</p>
-
             <p> <a href="detail.html?id=${data[index].id}">En savoir plus</a> </p>
                        
             `;
@@ -36,9 +35,8 @@ fetch(url)
       // //   console.log(article);
     }
   })
-
   .catch((error) => {
     console.log(
-      "Il y a eu un probleme avec l'operation fetch: " + error.message
+      "Il y a eu un probleme avec l'operation fetch: " + error.message,
     );
   });

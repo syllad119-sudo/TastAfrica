@@ -4,7 +4,7 @@
     "image": "/images/yassapoulet.png",
     "name": "Yassa poulet",
     "categorie": "plat",
-    "createdAt": "",
+    "date": "01/01/2025",
     "price": 15,
     "desc": "Riz blanc, sauce à base d’oignons, olives, citron, poulet.",
     "allergen": [""]
@@ -15,7 +15,7 @@
     "image": "/images/dibi310.png",
     "name": "Dibi viande",
     "categorie": "plat",
-    "createdAt": "",
+    "date": "01 01 2025",
     "price": 15,
     "desc": "Dibi viande accompagné d’une portion de riz rouge et de riz blanc mélangé, alokos, frites, plus sauce mafé ou yassa.",
     "allergen": [""]
@@ -26,7 +26,7 @@
     "image": "/images/tieb.png",
     "name": "Tieb Poisson ",
     "categorie": "plat",
-    "createdAt": "",
+    "date": "01/01/2025",
     "price": 15,
     "desc": "Riz cuisiné dans la sauce tomate avec des légumes, poisson.",
     "allergen": [""]
@@ -36,7 +36,7 @@
     "image": "/images/mafeviande.png",
     "name": "Mafe viande",
     "categorie": "plat",
-    "createdAt": "",
+    "date": "01/01/2025",
     "price": 15,
     "desc": "Riz  blanc, sauce d’arachide, avec tomate",
     "allergen": [""]
@@ -46,7 +46,7 @@
     "image": "/images/Bissap.png",
     "name": "bissap",
     "categorie": "boisson",
-    "createdAt": "",
+    "date": "01/01/2025",
     "price": "3",
     "desc": "Sed ut perspiciatis unde omnis iste natus ",
     "allergen": [""]
@@ -56,7 +56,7 @@
     "image": "/images/Gingembre.png",
     "name": "jus de gingembre",
     "categorie": "boisson",
-    "createdAt": "",
+    "date": "01/01/2025",
     "price": "3",
     "desc": "Sed ut perspiciatis unde omnis iste natus",
     "allergen": [""]
@@ -66,7 +66,7 @@
     "image": "/images/jusdefruit.png",
     "name": "jus de fruit",
     "categorie": "boisson",
-    "createdAt": "",
+    "date": "01/01/2025",
     "price": "3",
     "desc": "Sed ut perspiciatis unde omnis iste natus",
     "allergen": [""]
@@ -76,7 +76,7 @@
     "image": "/images/soda.png",
     "name": "sodas (cola, fanta, sprite)",
     "categorie": "boisson",
-    "createdAt": "",
+    "date": "01/01/2025",
     "price": "3",
     "desc": "Sed ut perspiciatis unde omnis iste natus",
     "allergen": [""]
@@ -86,7 +86,7 @@
     "image": "/images/Tiakry.png",
     "name": "Thiakry Nature ",
     "categorie": "dessert",
-    "createdAt": "",
+    "date": "01/01/2025",
     "price": "5",
     "desc": "Sed ut perspiciatis unde omnis iste natus",
     "allergen": [""]
@@ -96,7 +96,7 @@
     "image": "/images/beignet.png",
     "name": "Beignets",
     "categorie": "dessert",
-    "createdAt": "",
+    "date": "01/01/2025",
     "price": "5",
     "desc": "Sed ut perspiciatis unde omnis iste natus",
     "allergen": [""]
@@ -106,7 +106,7 @@
     "image": "/images/ananasroti.png",
     "name": "Ananas Roti",
     "categorie": "dessert",
-    "createdAt": "",
+    "date": "01-01-2025",
     "price": "5",
     "desc": "Sed ut perspiciatis unde omnis iste natus",
     "allergen": [""]
@@ -116,7 +116,7 @@
     "image": "/images/Fondantchoco.png",
     "name":"Fondant au chocolat",
     "categorie": "dessert",
-    "createdAt": "",
+    "date": "01/01/2025",
     "price": "5",
     "desc": "Sed ut perspiciatis unde omnis iste natus",
     "allergen": [""]
