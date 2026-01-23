@@ -25,6 +25,13 @@ body {
 .back__content {
   color: white;
   font-size: x-large;
+  padding: 32px 16px;
+
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.86),
+    transparent
+  );
 }
 
 iframe {
@@ -182,7 +189,9 @@ button {
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 button:hover {
