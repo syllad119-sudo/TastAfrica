@@ -223,6 +223,7 @@ button:active {
     /* right: 0; */
     background: #2f5d50;
     margin: auto;
+    .container {flex-direction: column;}
   }
   body {
     font-size: 14px;
