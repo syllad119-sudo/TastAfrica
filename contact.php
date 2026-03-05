@@ -19,10 +19,10 @@
         <div class="burger" id="burger">☰</div>
 
         <nav class="nav" id="nav">
-          <a href="index.html">Accueil</a>
-          <a href="liste.html">Menu</a>
+          <a href="index.php">Accueil</a>
+          <a href="liste.php">Menu</a>
           <a href="#">À propos</a>
-          <a href="contact.html">Contact</a>
+          <a href="contact.php">Contact</a>
         </nav>
       </div>
 

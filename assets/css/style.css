@@ -19,6 +19,7 @@ body {
   min-height: 80vh;
   background-size: cover;
   background-position: center;
+  /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); */
 }
 
 .back__content {
@@ -213,25 +214,22 @@ button:active {
     /* right: 0; */
     background: #2f5d50;
     margin: auto;
-}body {
+  }
+  body {
     font-size: 14px;
   }
 
-/* a apprendre  */
-  .footer{
+  /* a apprendre  */
+  .footer {
     display: flex;
     flex-direction: column;
   }
 
-  .menu img{
+  .menu img {
     width: 100%;
     object-fit: cover;
   }
 }
-
-
-
-
 
 body {
   max-width: 100%;
@@ -299,5 +297,3 @@ img {
   padding: 11px;
   margin: 16px;
 }
-
-
