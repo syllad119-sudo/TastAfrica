@@ -22,4 +22,3 @@
             <img src="/tasteafrica/images/tiktok-brands-solid-full.jpg" alt="tiktok" />
         </div>
     </header>
-    <main>

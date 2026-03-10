@@ -1,4 +1,4 @@
-</main>
+
 <footer>
   <p>&copy; 2024 Taste Africa. Tous droits réservés.</p>
   <div class="reseau social">
@@ -36,6 +36,3 @@
   </div>
 </footer>
 <script src="js/burger.js"></script>
-</body>
-
-</html>

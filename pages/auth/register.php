@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // if (empty($prenom) || strlen($prenom) < 2) {
     //     $erreurs[] = "Le prénom doit contenir au moins 2 caractères.";
     // }
-    if (empty($nom) || strlen($nom) < 2) {
-        $erreurs[] = "Le nom doit contenir au moins 2 caractères.";
+    if (empty($nom) || strlen($nom) < 4) {
+        $erreurs[] = "Le nom doit contenir au moins 4 caractères.";
     }
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $erreurs[] = "L'adresse email n'est pas valide.";
@@ -37,19 +37,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($erreurs)) {
         // protection contre injection SQL 
         // On prepare et on execute email par sa Valeur en affichant un msg d'erreur s'il ya une erreur 
-        $stmt = $pdo->prepare("SELECT id FROM users WHERE email = :email");
+        $stmt = Database::getInstance()->prepare("SELECT user_id FROM taste_africa_user WHERE email = :email");
         $stmt->execute(['email' => $email]);
         if ($stmt->fetch()) {
             $erreurs[] = "Cet email est déjà utilisé.";
         }
     }
-   // On continue toujours s'il nya aucune Erreur 
+    // On continue toujours s'il nya aucune Erreur 
     if (empty($erreurs)) {
         // On ne stocke jamais le mots de passe en claire dans la BDD d'ou Le hash 
         $mdpHash = password_hash($mdp, PASSWORD_DEFAULT);
         //  On prépare une requête d’insertion avec des paramètres nommés.
-        $stmt = $pdo->prepare(
-            "INSERT INTO users ( name, email, password) VALUES ( :name, :email, :password)"
+        $stmt = Database::getInstance()->prepare(
+            "INSERT INTO taste_africa_user ( name, email, password) VALUES ( :name, :email, :password)"
         );
         $stmt->execute([
             // 'prenom' => $prenom,
@@ -59,13 +59,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ]);
         // Si tout s'est bien passé L'utilisateur est enregistrer 
         $succes = true;
+        header("Location: login.php");
     }
 }
-// ?>
-// <!-- <?php 
-// session_start();
-
-// ?> -->
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -83,50 +80,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
 
-<?php include '../../includes/header.php'; ?>
+    <?php include '../../includes/header.php'; ?>
+    <main>
+        <!-- On affiche les messages d'erreurs ou de succes avec dans la page  -->
+        <form action="" method="POST">
+            <h1>Inscription Taste africa </h1>
 
-    <!-- On affiche les messages d'erreurs ou de succes avec dans la page  -->
-    <form action="" method="POST">
-        <h1>Inscription Taste africa </h1>
+            <?php if ($succes): ?>
+                <p class="succes">Compte créé avec succès !
+                    <a href="login.php">Se connecter</a>
+                </p>
+            <?php else: ?>
+                <!-- Le tableau n'est pas vide verifie si'il ya une erreur et affiche moi quelque chose  -->
+                <?php if (!empty($erreurs)): ?>
+                    <ul class="erreur">
+                        <?php foreach ($erreurs as $erreur): ?>
+                            <li><?= $erreur ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
 
-        <?php if ($succes): ?>
-            <p class="succes">Compte créé avec succès !
-               <a href="login.php">Se connecter</a></p>
-        <?php else: ?>
-  <!-- Le tableau n'est pas vide verifie si'il ya une erreur et affiche moi quelque chose  -->
-            <?php if (!empty($erreurs)): ?>
-                <ul class="erreur">
-                    <?php foreach ($erreurs as $erreur): ?>
-                        <li><?= $erreur ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            <?php endif; ?>
-
-            <!-- <label for="prenom">Prénom :</label>
+                <!-- <label for="prenom">Prénom :</label>
             <input type="text" name="prenom" id="prenom"
                    value="<?= htmlspecialchars($prenom ?? '') ?>" required> -->
 
-            <label for="nom">Nom :</label>
-            <input type="text" name="nom" id="nom"
-                   value="<?= htmlspecialchars($nom ?? '') ?>" required>
+                <label for="nom">Nom :</label>
+                <input type="text" name="nom" id="nom"
+                    value="<?= htmlspecialchars($nom ?? '') ?>" required>
 
-            <label for="email">Email :</label>
-            <input type="email" name="email" id="email"
-                   value="<?= htmlspecialchars($email ?? '') ?>" required>
+                <label for="email">Email :</label>
+                <input type="email" name="email" id="email"
+                    value="<?= htmlspecialchars($email ?? '') ?>" required>
 
-            <label for="mdp">Mot de passe :</label>
-            <input type="password" name="mdp" id="mdp" required minlength="8">
+                <label for="mdp">Mot de passe :</label>
+                <input type="password" name="mdp" id="mdp" required minlength="8">
 
-            <label for="mdp_confirm">Confirmer :</label>
-            <input type="password" name="mdp_confirm" id="mdp_confirm" required>
+                <label for="mdp_confirm">Confirmer :</label>
+                <input type="password" name="mdp_confirm" id="mdp_confirm" required>
 
-            <button type="submit">Créer mon compte</button>
-            <!-- <p><a href="exo16-connexion.php">Déjà inscrit ? Se connecter</a></p> -->
+                <button type="submit">Créer mon compte</button>
+                <!-- <p><a href="exo16-connexion.php">Déjà inscrit ? Se connecter</a></p> -->
 
-        <?php endif; ?>
-<!-- ✔ Utilisation de PDO
+            <?php endif; ?>
+            <!-- ✔ Utilisation de PDO
 ✔ Requêtes préparées (sécurité SQL)
 ✔ Mot de passe hashé
-✔ Vérification email existant --> 
-</form>
-<?php include '../../includes/footer.php'; ?>
+✔ Vérification email existant -->
+        </form>
+    </main>
+    <?php include '../../includes/footer.php'; ?>
+</body>
+
+</html>
