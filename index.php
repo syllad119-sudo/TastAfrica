@@ -1,107 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="150 words" />
+<?php
+session_start();
+include 'includes/header.php';
+include 'config/database.php';
 
-    <title> Accueil</title>
-    <link rel="stylesheet" href="css/burger.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    
-    
- </head>
-  <body>
-    <header>
-      <div>
-        <a href="/index.html">
-          <img class="logo" src="images/newlogo.png" alt="Logo Taste Africa"
-        /></a>
-      </div>
-      <!-- Bouton burger -->
-      <div id="burgernav">
-        <div class="burger" id="burger">☰ Menu</div>
+ $stmt= Database::getInstance();
+ $stmt=  $stmt->query("SELECT * FROM tasteafrica_product");
+ $response =$stmt ->fetchAll();
+var_dump($response);
+?>
 
-        <nav class="nav" id="nav">
-          <a href="./index.html">Accueil</a>
-          <a href="./liste.html">Menu</a>
-          <a href="./detail.html">À propos</a>
-          <a href="./contact.html">Contact</a>
-        </nav>
-      </div>
-
-      <div class="r-social">
-        <img src="images/instagram-brands-solid-full.jpg" alt="insta" />
-        <img src="images/facebook-brands-solid-full-_2_.jpg" alt="fb" />
-        <img src="images/tiktok-brands-solid-full.jpg" alt="tiktok" />
-      </div>
-    </header>
-    <main>
-      <section class="back">
-        <div class="back__content">
-          <h1>Bienvenue à Taste Africa</h1>
-          <p>
-            Découvrez les saveurs authentiques <br />
-            d'Afrique dans chaque plat que <br />
-            nous préparons avec passion.
-          </p>
-        </div>
-      </section>
-
-      <section class="card">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2901.6149159682805!2d5.394973675994751!3d43.34324657111848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c9bff6945fdd13%3A0x97493f5acd920579!2s54%20Rue%20Gabriel%20Audisio%2C%2013014%20Marseille!5e0!3m2!1sfr!2sfr!4v1766966184028!5m2!1sfr!2sfr"
-          title="adresse de mon restaurant"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </section>
-    </main>
-    <footer>
-      <p>&copy; 2024 Taste Africa. Tous droits réservés.</p>
-      <div class="reseau social">
-        <img src="images/instagram-brands-solid-full.jpg" alt="insta" />
-        <img src="images/facebook-brands-solid-full-_2_.jpg" alt="fb" />
-        <img src="images/tiktok-brands-solid-full.jpg" alt="tiktok" />
-      </div>
-
-      <div class="footer">
+  <main>
+    <section class="back">
+      <div class="back__content">
+        <h1>Bienvenue à Taste Africa</h1>
         <p>
-          <img src="images/location-dot-solid-full-_1_.jpg" alt="localisationlogo" />Tast Africa
-          <br />
-          Contactez-nous <br />
-          Email:tastafrica13@gmail.com <br />
-          Téléphone: +33 6 12 34 56 78
+          Découvrez les saveurs authentiques <br />
+          d'Afrique dans chaque plat que <br />
+          nous préparons avec passion.
         </p>
-        <div class="sv">
-          UNE RÉCLAMATION ? ECRIVEZ-NOUS À : QUALITE@TASTEAFRICA.FR
-          <br /><br />UNE COLLABORATION OU UNE DEMANDE D’INFORMATION ? <br />
-          <br />
-          CONTACTEZ-NOUS À : COMMUNICATION@TASTEAFRICAGROUP.FR <br />
-          <br />ENVIE DE REJOINDRE NOTRE EQUIPE ?<br />
-          <br />
-          ENVOYEZ UN MESSAGE À : <br />
-          <br />
-          RECRUTEMENT@TASTEAFRICAGROUP.FR <br />
-          UNE AUTRE DEMANDE ? ÉCRIVEZ-NOUS À : <br />
-          <br />
-          ADMINISTRATION@TASTEAFRICAGROUP.FR
-        </div>
       </div>
+    </section>
+    <section>
+      
+    </section>
+    <section class="card">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2901.6149159682805!2d5.394973675994751!3d43.34324657111848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c9bff6945fdd13%3A0x97493f5acd920579!2s54%20Rue%20Gabriel%20Audisio%2C%2013014%20Marseille!5e0!3m2!1sfr!2sfr!4v1766966184028!5m2!1sfr!2sfr"
+        title="adresse de mon restaurant"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+  </main>
 
-      <div class="logofoot">
-        <img src="images/newlogo.png" alt="Logo Taste Africa" />
-      </div>
-      <!-- <div class="sv">
-          UNE RÉCLAMATION ? ECRIVEZ-NOUS À : QUALITE@TASTEAFRICA.FR <br><br>UNE
-          COLLABORATION OU UNE DEMANDE D’INFORMATION ? <br> <br> CONTACTEZ-NOUS À :
-          COMMUNICATION@TASTEAFRICAGROUP.FR <br> <br>ENVIE DE REJOINDRE NOTRE EQUIPE ?<br> <br> ENVOYEZ
-          UN MESSAGE À : <br> <br> RECRUTEMENT@TASTEAFRICAGROUP.FR <br> UNE AUTRE DEMANDE ?
-          ÉCRIVEZ-NOUS À : <br> <br> ADMINISTRATION@TASTEAFRICAGROUP.FR
-        </div> -->
-    </footer>
-    <script src="js/burger.js"></script>
-  </body>
-</html>
+  <?php
+  include 'includes/footer.php';
+  ?>
+
