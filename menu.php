@@ -1,243 +1,65 @@
+php<?php 
+require_once 'config/database.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menu</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/burger.css" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <a href="/index.html">
-          <img class="logo" src="images/newlogo.png" alt="Logo Taste Africa"
-        /></a>
-      </div>
-      <!-- Bouton burger -->
-      <div id="burgernav">
-        <div class="burger" id="burger">☰</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu</title>
+  <link rel="stylesheet" href="assets/css/burger.css?v=<?= time() ?>" />
+  <link rel="stylesheet" href="assets/css/style.css?v=<?= time() ?>" />
+</head>
+<body>
 
-        <nav class="nav" id="nav">
-          <a href="./index.html">Accueil</a>
-          <a href="./liste.html">Menu</a>
-          <a href="./detail.html">À propos</a>
-          <a href="./contact.html">Contact</a>
-        </nav>
-      </div>
+<?php include 'includes/header.php'; ?>
 
-      <div class="r-social">
-        <img src="images/instagram-brands-solid-full.jpg" alt="insta" />
-        <img src="images/facebook-brands-solid-full-_2_.jpg" alt="fb" />
-        <img src="images/tiktok-brands-solid-full.jpg" alt="tiktok" />
-      </div>
-    </header>
-    <main>
-      <h1>La Carte</h1>
+<main>
+  <h1>La Carte</h1>
 
-      <select id="categorySelect">
-        <option value="all">Toutes les catégories</option>
-        <option value="plat">Plats</option>
-        <option value="boisson">Boissons</option>
-        <option value="dessert">Desserts</option>
-      </select>
-      <!-- afficher les menus filtrer  -->
-      <div id="dataFiltered"></div>
+  <select id="categorySelect">
+    <option value="all">Toutes les catégories</option>
+    <option value="1">Plats</option>
+    <option value="2">Boissons</option>
+    <option value="3">Desserts</option>
+  </select>
 
-      <!-- affciher liste des plats -->
-      <div id="menus"></div>
-    </main>
+  <div id="products-container">
+    <?php 
+      $pdo = Database::getInstance();
+      $stmt = $pdo->query("SELECT * FROM tasteafrica_product");
+      $rows = $stmt->fetchAll();
 
-    <footer>
-      <p>&copy; 2024 Taste Africa. Tous droits réservés.</p>
-      <div class="reseau social">
-        <img src="images/instagram-brands-solid-full.jpg" alt="insta" />
-        <img src="images/facebook-brands-solid-full-_2_.jpg" alt="fb" />
-        <img src="images/tiktok-brands-solid-full.jpg" alt="tiktok" />
-      </div>
+      foreach ($rows as $row) : 
+        // Si l'image est vide ou corrompue, on met une image par défaut
+        $image = (!empty($row['image'])) ? $row['image'] : '/TasteAfrica/assets/images/default.png';
+    ?>
 
-      <div class="footer">
-        <p>
-          <img src="images/location-dot-solid-full-_1_.jpg" alt="" />Tast Africa
-          <br />
-          Contactez-nous <br />
-          Email:tastafrica13@gmail.com <br />
-          Téléphone: +33 6 12 34 56 78
-        </p>
-        <div class="sv">
-          UNE RÉCLAMATION ? ECRIVEZ-NOUS À : QUALITE@TASTEAFRICA.FR
-          <br /><br />UNE COLLABORATION OU UNE DEMANDE D’INFORMATION ? <br />
-          <br />
-          CONTACTEZ-NOUS À : COMMUNICATION@TASTEAFRICAGROUP.FR <br />
-          <br />ENVIE DE REJOINDRE NOTRE EQUIPE ?<br />
-          <br />
-          ENVOYEZ UN MESSAGE À : <br />
-          <br />
-          RECRUTEMENT@TASTEAFRICAGROUP.FR <br />
-          UNE AUTRE DEMANDE ? ÉCRIVEZ-NOUS À : <br />
-          <br />
-          ADMINISTRATION@TASTEAFRICAGROUP.FR
-        </div>
-      </div>
+    <article class="product-card" data-category="<?= $row['category_id'] ?>">
+      <img 
+        src="<?= htmlspecialchars($image) ?>" 
+        alt="<?= htmlspecialchars($row['name']) ?>" 
+        style="width:150px;"
+        onerror="this.src='/TasteAfrica/assets/images/default.png';"
+      >
+      <h2><?= htmlspecialchars($row['name']) ?></h2>
+      <p><?= htmlspecialchars($row['desc_']) ?></p>
+      <p>Prix : <?= number_format($row['price'], 2, ',', ' ') ?> €</p>
+      <?php if ($row['in_stock'] > 0) : ?>
+        <span style="color:green;">En stock</span>
+      <?php else : ?>
+        <span style="color:red;">Rupture de stock</span>
+      <?php endif; ?>
+    </article>
 
-      <div class="logofoot">
-        <img src="images/newlogo.png" alt="Logo Taste Africa" />
-      </div>
-    </footer>
+    <?php endforeach; ?>
+  </div>
 
-    <script src="js/index.js"></script>
-    <script src="js/burger.js"></script>
-    <!-- Js  Recherche par Categorie  -->
-    <script>
-      const categorySelect = document.getElementById("categorySelect");
-      const dataFiltered = document.getElementById("dataFiltered");
-      // dataFiltered va contenir les menus a afficher
+</main>
 
-      
+<?php include 'includes/footer.php'; ?>
 
-      let allmenus = [];
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
-          allmenus = data;
-          dataFiltered = allmenus;
-          console.log(data);
-        });
-
-      categorySelect.addEventListener("change", function () {
-        menus.innerHTML = "";
-        const categorieChoisie = categorySelect.value;
-        let dataFiltered;
-        if (categorieChoisie === "all") {
-          dataFiltered = allmenus;
-        } else {
-          dataFiltered = allmenus.filter(
-            (item) => item.categorie === categorieChoisie
-          );
-        }
-
-        console.log(dataFiltered);
-        for (let index = 0; index < dataFiltered.length; index++) {
-          console.log(index);
-
-          const article = document.createElement("article");
-          article.classList = "menu";
-          article.style.backgroundColor = "#BF7E04";
-          article.innerHTML = `
-            <img src="${dataFiltered[index].image}" alt="${dataFiltered[index].name}" >
-            <h2>${dataFiltered[index].name}</h2>
-            <p>Prix: ${dataFiltered[index].price} €</p>
-            <p>Categorie: ${dataFiltered[index].categorie}</p>
-            <p>description: ${dataFiltered[index].desc}</p>
-
-            <p> <a href="detail.html?id=${dataFiltered[index].id}">En savoir plus</a> </p>
-
-            `;
-          menus.appendChild(article);
-        }
-      });
-
-      // Fonctionnalite fil par barre de recherche
-
-      //  searchPlat.addEventListener("change", function () {
-      //     resultats.innerHTML = ""
-
-      //     const nomPlat = searchPlat.value;
-      //     let dataFiltered;
-      //     if (nomPlat === "all") {
-      //       dataFiltered = allmenus;
-      //     } else {
-      //       dataFiltered = allmenus.filter(
-      //         (item) => item.name === nomPlat
-      //       );
-      //     }
-      //   console.log(dataFiltered);
-      //     for (let index = 0; index < dataFiltered.length; index++) {
-      //       console.log(index);
-
-      //       const article = document.createElement("article");
-      //       article.classList = "menu";
-      //       article.style.backgroundColor = "#BF7E04";
-      //       article.innerHTML = `
-      //         <img src="${dataFiltered[index].image}" alt="${dataFiltered[index].name}" >
-      //         <h2>${dataFiltered[index].name}</h2>
-      //         <p>Prix: ${dataFiltered[index].price} €</p>
-      //         <p>Categorie: ${dataFiltered[index].categorie}</p>
-      //         <p>description: ${dataFiltered[index].desc}</p>
-
-      //         <p> <a href="detail.html?id=${dataFiltered[index].id}">En savoir plus</a> </p>
-
-      //         `;
-      //       resultats.appendChild(article);
-      //     }
-      //   });
-
-      // searchInput.addEventListener("input", appliquerFiltres);
-      // categorySelect.addEventListener("change", appliquerFiltres);
-
-      // function appliquerFiltres() {
-      //   const texteRecherche = searchInput.value.toLowerCase();
-      //   const categorieChoisie = categorySelect.value;
-
-      //   donneesFiltrees = menusData.filter((item) => {
-      //     const correspondTexte = item.name
-      //       .toLowerCase()
-      //       .includes(texteRecherche);
-
-      //     const correspondCategorie =
-      //       categorieChoisie === "all" || item.categorie === categorieChoisie;
-
-      //     return correspondTexte && correspondCategorie;
-      //   });
-
-      //   afficherMenus(donneesFiltrees);
-      // }
-      // function afficherMenus(liste) {
-      //   menus.innerHTML = "";
-
-      //   if (liste.length === 0) {
-      //     menus.innerHTML = "<p>Aucun résultat</p>";
-      //     return;
-      //   }
-
-      //     liste.forEach((item) => {
-      //       const article = document.createElement("article");
-      //       article.classList.add("menu");
-
-      //       article.innerHTML = `
-      //   <img src="${item.image}" alt="${item.name}">
-      //   <h2>${item.name}</h2>
-      //   <p>Prix: ${item.price} €</p>
-      //   <p>Categorie: ${item.categorie}</p>
-      //   <p>${item.desc}</p>
-      //   <p>
-      //     <a href="detail.html?id=${item.id}">En savoir plus</a>
-      //   </p>
-      // `;
-
-      //       menus.appendChild(article);
-      //     });
-      //   }
-
-      // function lancerRecherche() {
-      //   const texteRecherche = searchPlat.value.toLowerCase();
-      //   const categorieChoisie = categorySelect.value;
-
-      //   menus.innerHTML = "";
-
-      //   const filtres = menuData.filter((item) => {
-      //     const correspondTexte = item.name
-      //       .toLowerCase()
-      //       .includes(texteRecherche);
-
-      //     const correspondCategorie =
-      //       categorieChoisie === "all" || item.categorie === categorieChoisie;
-
-      //     return correspondTexte && correspondCategorie;
-      //   });
-
-      //   console.log(filtres);
-      // }
-    </script>
-  </body>
+<script src="js/index.js"></script>
+<script src="js/burger.js"></script>
+</body>
 </html>

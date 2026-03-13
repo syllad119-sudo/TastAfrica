@@ -1,37 +1,21 @@
+<?php 
+
+include 'includes/header.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulaire de contact</title>
-    <link rel="stylesheet" href="css/burger.css" />
-    <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="assets/css/burger.css?v=<?= time() ?>" />
+    <link rel="stylesheet" href="assets/css/style.css?v=<?= time() ?>" />
   </head>
   <body>
-    <header>
-      <div>
-        <a href="/index.html">
-          <img class="logo" src="images/newlogo.png" alt="Logo Taste Africa"
-        /></a>
-      </div>
-      <!-- Bouton burger -->
-      <div id="burgernav">
-        <div class="burger" id="burger">☰</div>
+    
 
-        <nav class="nav" id="nav">
-          <a href="index.php">Accueil</a>
-          <a href="liste.php">Menu</a>
-          <a href="#">À propos</a>
-          <a href="contact.php">Contact</a>
-        </nav>
-      </div>
-
-      <div class="r-social">
-        <img src="images/instagram-brands-solid-full.jpg" alt="insta" />
-        <img src="images/facebook-brands-solid-full-_2_.jpg" alt="fb" />
-        <img src="images/tiktok-brands-solid-full.jpg" alt="tiktok" />
-      </div>
-    </header>
     <main>
       <section class="contact-section">
         <div class="container">
@@ -125,7 +109,7 @@
       </div>
 
       <div class="logofoot">
-        <img src="images/newlogo.png" alt="Logo Taste Africa" />
+        <img src="images/tasteafrica-logo.png" alt="Logo Taste Africa" />
       </div>
     </footer>
     <script src="js/index.js"></script>

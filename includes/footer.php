@@ -32,7 +32,7 @@
   </div>
 
   <div class="logofoot">
-    <img src="/tasteafrica/images/newlogo.png" alt="Logo Taste Africa" />
+    <img src="/tasteafrica/images/tasteafrica-logo.png" alt="Logo Taste Africa" />
   </div>
 </footer>
 <script src="js/burger.js"></script>

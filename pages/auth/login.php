@@ -62,8 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         button { margin-top: 15px; padding: 10px 20px; }
         .erreur { color: red; }
     </style>
-    <link rel="stylesheet" href="../../assets/css/burger.css" />
-    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <link rel="stylesheet" href="../../assets/css/burger.css?v=<?= time() ?>" />
+    <link rel="stylesheet" href="../../assets/css/style.css?v=<?= time() ?>" />
 
 </head>
 
@@ -97,3 +97,6 @@ Si trouvé → vérification du mot de passe avec password_verify.
 Si correct → création de la session + redirection vers le dashboard.
 Sinon → affichage d’une erreur “Email ou mot de passe incorrect.” -->
     <?php include '../../includes/footer.php'; ?>
+
+</body>
+</html>

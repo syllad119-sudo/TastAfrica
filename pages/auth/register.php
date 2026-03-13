@@ -72,9 +72,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="150 words" />
 
-    <title> Accueil</title>
-    <link rel="stylesheet" href="../../assets/css/burger.css" />
-    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <title> Inscription </title>
+    <style>
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+        }
+
+        .erreur {
+            color: red;
+        }
+
+        .succes {
+            color: green;
+        }
+    </style>
+    <link rel="stylesheet" href="../../assets/css/burger.css?v=<?= time() ?>" />
+    <link rel="stylesheet" href="../../assets/css/style.css?v=<?= time() ?>" />
 
 </head>
 
@@ -84,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main>
         <!-- On affiche les messages d'erreurs ou de succes avec dans la page  -->
         <form action="" method="POST">
-            <h1>Inscription Taste africa </h1>
+            <h1>Inscription </h1>
 
             <?php if ($succes): ?>
                 <p class="succes">Compte créé avec succès !
@@ -127,7 +158,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ✔ Mot de passe hashé
 ✔ Vérification email existant -->
         </form>
+        <p><a href="login.php">Déjà inscrit ? Se connecter</a></p>
     </main>
+
     <?php include '../../includes/footer.php'; ?>
 </body>
 

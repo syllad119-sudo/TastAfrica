@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="css/burger.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../../assets/css/burger.css?v=<?= time() ?>" />
+    <link rel="stylesheet" href="../../assets/css/style.css?v=<?= time() ?>" />
   </head>
   <body>
     <header>
       <div>
-        <img class="logo" src="images/newlogo.png" alt="Logo Taste Africa" />
+        <img class="logo" src="images/tasteafrica-logo.png" alt="Logo Taste Africa" />
       </div>
       <!-- Bouton burger -->
       <div id="burgernav">
@@ -55,7 +55,7 @@
         </p>
       </div>
       <div class="logofoot">
-        <img src="images/newlogo.png" alt="Logo Taste Africa" />
+        <img src="images/tasteafrica-logo.png" alt="Logo Taste Africa" />
       </div>
     </footer>
     <script src="js/burger.js"></script>
