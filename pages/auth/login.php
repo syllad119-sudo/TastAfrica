@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title> Connexion</title>
 
     <style>
-        form { max-width: 400px; margin: 50px auto; }
+        form { max-width: 500px; margin: 50px auto; }
         label { display: block; margin-top: 10px; font-weight: bold; }
         input { width: 100%; padding: 8px; margin-top: 4px; }
         button { margin-top: 15px; padding: 10px 20px; }

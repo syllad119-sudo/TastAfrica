@@ -1,4 +1,4 @@
-php<?php 
+<?php 
 require_once 'config/database.php';
 ?>
 <!DOCTYPE html>
@@ -32,15 +32,18 @@ require_once 'config/database.php';
 
       foreach ($rows as $row) : 
         // Si l'image est vide ou corrompue, on met une image par défaut
-        $image = (!empty($row['image'])) ? $row['image'] : '/TasteAfrica/assets/images/default.png';
+        // $image = !empty($row['image']) ? 'images/default.png':$row['image'];
+          $image = (!empty($row['image'])) ? $row['image'] : 'images/default.png';
+
+        
     ?>
 
     <article class="product-card" data-category="<?= $row['category_id'] ?>">
       <img 
         src="<?= htmlspecialchars($image) ?>" 
         alt="<?= htmlspecialchars($row['name']) ?>" 
-        style="width:150px;"
-        onerror="this.src='/TasteAfrica/assets/images/default.png';"
+        style="width:400px;"
+        onerror="this.src='assets/images/default.png';"
       >
       <h2><?= htmlspecialchars($row['name']) ?></h2>
       <p><?= htmlspecialchars($row['desc_']) ?></p>

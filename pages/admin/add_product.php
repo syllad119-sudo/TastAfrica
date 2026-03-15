@@ -1,5 +1,5 @@
 <?php
-
+// Connexion a la base de donnée 
 require_once __DIR__ . '/../../config/database.php';
 $pdo = Database::getInstance();
 
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   // ✅ $imagePath défini ici, DANS le if POST
-  $imagePath = '/images/' . $imageName;
+  $imagePath = 'images/' . $imageName;
 
   $stmt = $pdo->prepare("INSERT INTO tasteafrica_product (image, name, category_id, created_At, price, in_stock, `desc_`) 
     VALUES (:image, :name, :category_id, NOW(), :price, :in_stock, :desc_)");
@@ -50,6 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <title>Ajouter un produit</title>
 </head>
 <body>
+      <?php include '../../includes/header.php'; ?>
+
 
   <h1>Ajouter un article</h1>
 
@@ -79,6 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <button type="submit">Ajouter</button>
   </form>
+    <?php include '../../includes/footer.php'; ?>
 
 </body>
 </html>

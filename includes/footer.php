@@ -9,7 +9,7 @@
 
   <div class="footer">
     <p>
-      <img src="/tasteafrica/images/location-dot-solid-full-_1_.jpg" alt="" />Tast Africa
+      <img src="/tasteafrica/images/location-dot-solid-full-_1_.jpg" alt="" />Taste Africa
       <br />
       Contactez-nous <br />
       Email:tastafrica13@gmail.com <br />
