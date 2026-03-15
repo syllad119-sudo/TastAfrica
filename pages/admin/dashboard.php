@@ -46,6 +46,9 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <a href="add_product.php">➕ Ajouter un plat</a>
 
+    <a href="show_with_category.php">📋 Voir produits avec catégories</a>
+```
+
     <table border="1">
         <tr>
             <th>Nom</th>

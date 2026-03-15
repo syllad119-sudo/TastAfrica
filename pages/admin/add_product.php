@@ -84,8 +84,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <label>Prix :</label>
     <input type="number" step="0.01" name="price" required>
 
-    <label>En stock :</label>
-    <input type="number" name="in_stock" value="1" required>
+     <label>En stock :</label>
+    <input type="number" name="in_stock" value="1" required> 
 
     <label>Catégorie :</label>
     <select name="category_id">
