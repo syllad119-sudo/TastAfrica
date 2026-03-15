@@ -139,7 +139,7 @@ h1 {
 label {
   display: block;
   margin-bottom: 8px;
-  color: white;
+  color: black;
   font-weight: 500;
   font-size: 14px;
 }
@@ -357,4 +357,28 @@ img {
     #products-container {
         grid-template-columns: repeat(1, 1fr);
     }
+}
+/* Formulaire de modification  */
+.form-edit input,
+.form-edit textarea,
+.form-edit select {
+    font-size: 14px;  /* ← taille normale */
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.form-edit textarea {
+    font-size: 14px;  /* ← écrase le 35px global */
+    min-height: 100px;
+    
+}
+
+.form-edit button {
+    width: auto;  /* ← pas pleine largeur comme le bouton contact */
+    padding: 10px 20px;
+    margin-top: 10px;
 }

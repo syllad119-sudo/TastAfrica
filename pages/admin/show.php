@@ -13,14 +13,34 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <head>
     <title>Produits - Taste Africa</title>
+
+    <style>
+        .show {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 2px solid #2196F3;
+            border-radius: 8px;
+        }
+    </style>
+    <link rel="stylesheet" href="../../assets/css/burger.css?v=<?= time() ?>" />
+    <link rel="stylesheet" href="../../assets/css/style.css?v=<?= time() ?>" />
+
+
 </head>
 
 <body>
-<main>
+<?php include '../../includes/header.php'; ?>
 
-    <h1>Liste des produits</h1>
+<!-- <main> -->
 
-    <table border="1">
+<div class="show">
+
+<h1 style="color: blue;">Liste des produits</h1>
+<a href="dashboard.php">←Retour à la Gestion de stock</a>
+
+    
+<table border="1">
 
         <tr>
             <th>ID</th>
@@ -57,7 +77,8 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php endforeach; ?>
 
         </table>
-        </main>
-
+        </div>
+        <!-- </main> -->
+            <?php include '../../includes/footer.php'; ?>
 </body>
 </html>

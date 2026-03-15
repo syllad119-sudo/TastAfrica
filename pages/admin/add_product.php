@@ -48,14 +48,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ajouter un produit</title>
+   <style>
+        .add_product {
+            max-width: 450px;
+            margin: 15px auto;
+            padding: 5px;
+            border: 2px solid #2196F3;
+            border-radius: 8px;
+        }
+    </style> 
+
+  <link rel="stylesheet" href="../../assets/css/burger.css?v=<?= time() ?>" />
+    <link rel="stylesheet" href="../../assets/css/style.css?v=<?= time() ?>" />
+
 </head>
 <body>
       <?php include '../../includes/header.php'; ?>
 
+<div class = "add_product">
+  <h1 style="color: blue;">Ajouter un article</h1>
+  <a href="dashboard.php">←Retour à la Gestion de stock</a>
 
-  <h1>Ajouter un article</h1>
 
-  <form action="add_product.php" method="POST" enctype="multipart/form-data">
+  <form class= "form-edit" action="add_product.php" method="POST" enctype="multipart/form-data">
 
     <label>Image :</label>
     <input type="file" name="image">
@@ -81,6 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <button type="submit">Ajouter</button>
   </form>
+  </div>
     <?php include '../../includes/footer.php'; ?>
 
 </body>

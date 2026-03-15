@@ -91,13 +91,31 @@ if (!$product) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifier un produit - Taste Africa</title>
+     <style>
+        .edit {
+            max-width: 450px;
+            margin: 15px auto;
+            padding: 5px;
+            border: 2px solid #2196F3;
+            border-radius: 8px;
+        }
+    </style> 
+
+    <link rel="stylesheet" href="../../assets/css/burger.css?v=<?= time() ?>" />
+    <link rel="stylesheet" href="../../assets/css/style.css?v=<?= time() ?>" />
+
 </head>
 <body>
-<main>
+        <?php include '../../includes/header.php'; ?>
+        
+        <div class="edit">
 
-    <h1>Modifier : <?= htmlspecialchars($product['name']) ?></h1>
 
-    <form action="edit.php?id=<?= $id ?>" method="POST" enctype="multipart/form-data">
+<!-- <main> -->
+
+    <h1 style="color: blue;" >Modifier : <?= htmlspecialchars($product['name']) ?></h1>
+
+<form class="form-edit" action="edit.php?id=<?= $id ?>" method="POST" enctype="multipart/form-data">
 
         <label>Image actuelle :</label><br>
         <?php
@@ -110,27 +128,27 @@ if (!$product) {
              alt="<?= htmlspecialchars($product['name']) ?>"
              width="100"
              onerror="this.onerror=null; this.src='/TasteAfrica/assets/images/default.png';">
-        <br><br>
+        <br>
 
         <label>Nouvelle image (laisser vide pour garder l'actuelle) :</label><br>
         <input type="file" name="image">
-        <br><br>
+        <br>
 
         <label>Nom :</label><br>
         <input type="text" name="name" value="<?= htmlspecialchars($product['name']) ?>" required>
-        <br><br>
+        <br>
 
         <label>Description :</label><br>
         <textarea name="desc" required><?= htmlspecialchars($product['desc_']) ?></textarea>
-        <br><br>
+        <br>
 
         <label>Prix :</label><br>
         <input type="number" step="0.01" name="price" value="<?= $product['price'] ?>" required>
-        <br><br>
+        <br>
 
         <label>En stock :</label><br>
         <input type="number" name="in_stock" value="<?= $product['in_stock'] ?>" required>
-        <br><br>
+        <br>
 
         <label>Catégorie :</label><br>
         <select name="category_id">
@@ -144,7 +162,9 @@ if (!$product) {
         <a href="show.php">← Annuler</a>
 
     </form>
-    </main>
+    </div>
+    <!-- </main> -->
+    <?php include '../../includes/footer.php'; ?>
 
 </body>
 </html>
