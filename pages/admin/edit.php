@@ -14,9 +14,9 @@ if (!isset($_GET['id'])) {
 
 $id = (int) $_GET['id'];
 
-// =====================
+
 // Traitement du formulaire
-// =====================
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $name        = $_POST['name'];
@@ -76,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // =====================
 // Affichage du formulaire
 // =====================
+// récupérer un produit dans la base de données en fonction de son ID, puis vérifier s’il existe.:
 $stmt = $pdo->prepare("SELECT * FROM tasteafrica_product WHERE product_id = :id");
 $stmt->execute(['id' => $id]);
 $product = $stmt->fetch(PDO::FETCH_ASSOC);

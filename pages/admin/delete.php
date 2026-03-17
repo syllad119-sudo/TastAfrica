@@ -3,7 +3,7 @@ require_once __DIR__ . '/../../config/database.php';
 
 $pdo = Database::getInstance();
 
-// Si on reçoit un ID à supprimer
+// Si on pas reçoit un ID à supprimer
 if (isset($_GET['id'])) {
     $id = (int) $_GET['id']; // (int) pour sécuriser contre les injections SQL
 

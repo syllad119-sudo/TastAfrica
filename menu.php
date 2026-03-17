@@ -32,7 +32,6 @@ require_once 'config/database.php';
 
       foreach ($rows as $row) : 
         // Si l'image est vide ou corrompue, on met une image par défaut
-        // $image = !empty($row['image']) ? 'images/default.png':$row['image'];
           $image = (!empty($row['image'])) ? $row['image'] : 'images/default.png';
 
         
@@ -62,7 +61,7 @@ require_once 'config/database.php';
 
 <?php include 'includes/footer.php'; ?>
 
-<script src="js/index.js"></script>
-<script src="js/burger.js"></script>
+<script src="assets/js/burger.js"></script>
+<script src="assets/js/index.js"></script>
 </body>
 </html>

@@ -1,204 +1,135 @@
-<?php 
-
+<?php
 include 'includes/header.php';
 
+$success = false;
+$erreurs = [];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $last_name  = trim($_POST['last_name'] ?? '');
+    $first_name = trim($_POST['first_name'] ?? '');
+    $email      = trim($_POST['email'] ?? '');
+    $message    = trim($_POST['message'] ?? '');
+
+    // Validations
+    if (empty($last_name)) {
+        $erreurs['last_name'] = 'Veuillez entrer votre nom';
+    }
+    if (empty($first_name)) {
+        $erreurs['first_name'] = 'Veuillez entrer votre prénom';
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $erreurs['email'] = 'Veuillez entrer un email valide';
+    }
+    if (empty($message)) {
+        $erreurs['message'] = 'Veuillez entrer votre message';
+    }
+
+    // Si pas d'erreurs → INSERT en BDD
+    if (empty($erreurs)) {
+        require_once 'config/database.php';
+        $pdo = Database::getInstance();
+
+        // Génère un ID unique
+        $id_contact = uniqid('contact_');
+
+        $stmt = $pdo->prepare("INSERT INTO taste_africa_contact 
+            (id_contact_, last_name, first_name, email, message_, date_time) 
+            VALUES (:id_contact, :last_name, :first_name, :email, :message, :date_time)");
+
+        $stmt->execute([
+            'id_contact'  => $id_contact,
+            'last_name'   => $last_name,
+            'first_name'  => $first_name,
+            'email'       => $email,
+            'message'     => $message,
+            'date_time'   => date('Y-m-d') // Date du jour
+        ]);
+
+        $success = true;
+    }
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="fr">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulaire de contact</title>
-      <link rel="stylesheet" href="assets/css/burger.css?v=<?= time() ?>" />
+    <link rel="stylesheet" href="assets/css/burger.css?v=<?= time() ?>" />
     <link rel="stylesheet" href="assets/css/style.css?v=<?= time() ?>" />
-  </head>
-  <body>
-    
+</head>
+<body>
 
-    <main>
-      <section class="contact-section">
+<main>
+    <section class="contact-section">
         <div class="container">
-          <h1>Contactez-nous</h1>
-          <p class="subtitle">
-            Remplissez le formulaire ci-dessous et nous vous répondrons
-            rapidement.
-          </p>
+            <h1>Contactez-nous</h1>
+            <p class="subtitle">
+                Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.
+            </p>
 
-          <div class="success-message" id="successMessage">
-            Votre message a été envoyé avec succès !
-          </div>
+            <?php if ($success): ?>
+                <div class="success-message show">
+                    Votre message a été envoyé avec succès !
+                </div>
+            <?php endif; ?>
 
-          <form id="contactForm">
-            <div class="form-group">
-              <label for="nom">Nom *</label>
-              <input type="text" id="nom" name="nom" required />
-              <span class="error-message" id="nomError"
-                >Veuillez entrer votre nom</span
-              >
-            </div>
+            <form action="contact.php" method="POST">
 
-            <div class="form-group">
-              <label for="prenom">Prénom *</label>
-              <input type="text" id="prenom" name="prenom" required />
-              <span class="error-message" id="prenomError"
-                >Veuillez entrer votre prénom</span
-              >
-            </div>
+                <div class="form-group">
+                    <label for="last_name">Nom *</label>
+                    <input type="text" id="last_name" name="last_name"
+                        value="<?= htmlspecialchars($_POST['last_name'] ?? '') ?>"
+                        class="<?= isset($erreurs['last_name']) ? 'error' : '' ?>"
+                        required />
+                    <span class="error-message <?= isset($erreurs['last_name']) ? 'show' : '' ?>">
+                        <?= $erreurs['last_name'] ?? '' ?>
+                    </span>
+                </div>
 
-            <div class="form-group">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" required />
-              <span class="error-message" id="emailError"
-                >Veuillez entrer un email valide</span
-              >
-            </div>
+                <div class="form-group">
+                    <label for="first_name">Prénom *</label>
+                    <input type="text" id="first_name" name="first_name"
+                        value="<?= htmlspecialchars($_POST['first_name'] ?? '') ?>"
+                        class="<?= isset($erreurs['first_name']) ? 'error' : '' ?>"
+                        required />
+                    <span class="error-message <?= isset($erreurs['first_name']) ? 'show' : '' ?>">
+                        <?= $erreurs['first_name'] ?? '' ?>
+                    </span>
+                </div>
 
-            <div class="form-group">
-              <label for="telephone">Téléphone *</label>
-              <input type="tel" id="telephone" name="telephone" required />
-              <span class="error-message" id="telephoneError"
-                >Veuillez entrer un numéro de téléphone valide</span
-              >
-            </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email"
+                        value="<?= htmlspecialchars($_POST['email'] ?? '') ?>"
+                        class="<?= isset($erreurs['email']) ? 'error' : '' ?>"
+                        required />
+                    <span class="error-message <?= isset($erreurs['email']) ? 'show' : '' ?>">
+                        <?= $erreurs['email'] ?? '' ?>
+                    </span>
+                </div>
 
-            <div class="form-group">
-              <label for="message">Message *</label>
-              <textarea id="message" name="message" required></textarea>
-              <span class="error-message" id="messageError"
-                >Veuillez entrer votre message</span
-              >
-            </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message"
+                        class="<?= isset($erreurs['message']) ? 'error' : '' ?>"
+                        required><?= htmlspecialchars($_POST['message'] ?? '') ?></textarea>
+                    <span class="error-message <?= isset($erreurs['message']) ? 'show' : '' ?>">
+                        <?= $erreurs['message'] ?? '' ?>
+                    </span>
+                </div>
 
-            <button type="submit">Envoyer le message</button>
-          </form>
+                <button type="submit">Envoyer le message</button>
+            </form>
         </div>
-      </section>
-    </main>
+    </section>
+</main>
 
-    <footer>
-      <p>&copy; 2024 Taste Africa. Tous droits réservés.</p>
-      <div class="reseau social">
-        <img src="images/instagram-brands-solid-full.jpg" alt="insta" />
-        <img src="images/facebook-brands-solid-full-_2_.jpg" alt="fb" />
-        <img src="images/tiktok-brands-solid-full.jpg" alt="tiktok" />
-      </div>
+<?php include 'includes/footer.php'; ?>
 
-      <div class="footer">
-        <p>
-          <img src="images/location-dot-solid-full-_1_.jpg" alt="" />Tast Africa
-          <br />
-          Contactez-nous <br />
-          Email:tastafrica13@gmail.com <br />
-          Téléphone: +33 6 12 34 56 78
-        </p>
-        <div class="sv">
-          UNE RÉCLAMATION ? ECRIVEZ-NOUS À : QUALITE@TASTEAFRICA.FR
-          <br /><br />UNE COLLABORATION OU UNE DEMANDE D’INFORMATION ? <br />
-          <br />
-          CONTACTEZ-NOUS À : COMMUNICATION@TASTEAFRICAGROUP.FR <br />
-          <br />ENVIE DE REJOINDRE NOTRE EQUIPE ?<br />
-          <br />
-          ENVOYEZ UN MESSAGE À : <br />
-          <br />
-          RECRUTEMENT@TASTEAFRICAGROUP.FR <br />
-          UNE AUTRE DEMANDE ? ÉCRIVEZ-NOUS À : <br />
-          <br />
-          ADMINISTRATION@TASTEAFRICAGROUP.FR
-        </div>
-      </div>
-
-      <div class="logofoot">
-        <img src="images/tasteafrica-logo.png" alt="Logo Taste Africa" />
-      </div>
-    </footer>
-    <script src="js/index.js"></script>
-    <script src="js/burger.js"></script>
-    <script>
-      const form = document.getElementById("contactForm");
-      const successMessage = document.getElementById("successMessage");
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        let isValid = true;
-
-        // Réinitialiser les erreurs
-        document
-          .querySelectorAll(".error")
-          .forEach((el) => el.classList.remove("error"));
-        document
-          .querySelectorAll(".error-message")
-          .forEach((el) => el.classList.remove("show"));
-
-        // Validation du nom
-        const nom = document.getElementById("nom");
-        if (nom.value.trim() === "") {
-          nom.classList.add("error");
-          document.getElementById("nomError").classList.add("show");
-          isValid = false;
-        }
-
-        // Validation du prénom
-        const prenom = document.getElementById("prenom");
-        if (prenom.value.trim() === "") {
-          prenom.classList.add("error");
-          document.getElementById("prenomError").classList.add("show");
-          isValid = false;
-        }
-
-        // Validation de l'email
-        const email = document.getElementById("email");
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email.value)) {
-          email.classList.add("error");
-          document.getElementById("emailError").classList.add("show");
-          isValid = false;
-        }
-
-        // Validation du téléphone
-        const telephone = document.getElementById("telephone");
-        const telRegex = /^[0-9\s\+\-\(\)]{10,}$/;
-        if (!telRegex.test(telephone.value)) {
-          telephone.classList.add("error");
-          document.getElementById("telephoneError").classList.add("show");
-          isValid = false;
-        }
-
-        // Validation du message
-        const message = document.getElementById("message");
-        if (message.value.trim() === "") {
-          message.classList.add("error");
-          document.getElementById("messageError").classList.add("show");
-          isValid = false;
-        }
-
-        // Si tout est valide
-        if (isValid) {
-          // Afficher le message de succès
-          successMessage.classList.add("show");
-
-          // Réinitialiser le formulaire
-          form.reset();
-
-          // Masquer le message après 5 secondes
-          setTimeout(() => {
-            successMessage.classList.remove("show");
-          }, 5000);
-
-          // Ici vous pouvez ajouter le code pour envoyer les données à un serveur
-          console.log("Formulaire soumis avec succès!");
-        }
-      });
-
-      // Retirer l'erreur lors de la saisie
-      document.querySelectorAll("input, textarea").forEach((input) => {
-        input.addEventListener("input", function () {
-          this.classList.remove("error");
-          const errorId = this.id + "Error";
-          document.getElementById(errorId).classList.remove("show");
-        });
-      });
-    </script>
-  </body>
+<script src="assets/js/burger.js"></script>
+<script src="assets/js/index.js"></script>
+</body>
 </html>

@@ -20,7 +20,7 @@ include 'config/database.php';
 <main>
   <section class="back">
     <div class="back__content">
-      <h1>Bienvenue à Taste Africa</h1>
+      <h1>Bienvenue chez Taste Africa</h1>
       <p>
         Découvrez les saveurs authentiques <br />
         d'Afrique dans chaque plat que <br />
@@ -45,6 +45,9 @@ include 'config/database.php';
 <?php
 include 'includes/footer.php';
 ?>
+
+<script src="assets/js/burger.js"></script>
+<script src="assets/js/index.js"></script>
 
 </body>
 

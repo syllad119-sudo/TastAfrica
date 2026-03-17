@@ -9,9 +9,9 @@
 
         <nav class="nav" id="nav">
             <a href="/TasteAfrica/index.php">Accueil</a>
-            <a href="/TasteAfrica/menu.php">Menu</a>
-            <a href="/TasteAfrica/contact.php">Contact</a>
-            <a href="/TasteAfrica/pages/auth/login.php">Connexion/admin</a>
+            <a href="/TasteAfrica/menu.php">La carte</a>
+            <a href="/TasteAfrica/contact.php">Nous Contactez</a>
+            <a href="/TasteAfrica/pages/auth/login.php">Connexion</a>
         </nav>
     </div>
 

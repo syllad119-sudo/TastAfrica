@@ -10,6 +10,12 @@ header("Location: ../admin/dashboard.php");
     exit;
 }
 
+//  if ($_SESSION['user_role'] !== 'admin') {
+//     header("Location: /TasteAfrica/index.php"); // ← redirige vers l'accueil
+//     exit;
+// }
+
+
 // On crée une variable vide pour stocker un éventuel message d’erreur (ex : “Email incorrect”).
 $erreur = '';
 //  Verifier si le formulaire à éte envoyer ou soumis 

@@ -1,8 +1,26 @@
 <?php
 session_start();
+// Si une erreur se produit dans ton code, elle apparaîtra directement dans le navigateur.
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+
+if ($_SESSION['role'] !== 'admin') {
+    header("Location: index.php");
+    exit;
+}
+
+// if (!isset($_SESSION['user_id'])) {
+//     header("Location: ../auth/login.php");
+//     exit;
+// }
+
+// // ✅ Vérifie si l'utilisateur est admin
+// if ($_SESSION['user_role'] !== 'admin') {
+//     header("Location: /TasteAfrica/index.php"); // ← redirige vers l'accueil
+//     exit;
+// }
 
 include '../../config/database.php';
 
@@ -46,7 +64,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <a href="add_product.php">➕ Ajouter un plat</a>
 
-    <a href="show_with_category.php">📋 Voir produits avec catégories</a>
+    <a href="produit_category.php">📋 Voir produits avec catégories</a>
 ```
 
     <table border="1">
